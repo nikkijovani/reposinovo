@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="cssdaverdura.css">
+	<title>Mercearia online</title>
+<header>
+		   <h2><img	src="imagens /logosite.png" width=155px right=55px alt="Mercearia online" ></h2>
+		   <nav class="menu">
+				<ul>
+						<li><a	href="index.html">Página inicial</a></li>
+						<li><a	href="login.html">Login</a></li>
+						<li><a	href="cadastro.html">Cadastro</a></li>
+            <li><a  href="contato.html">Contato</a>
+						<li><a	href="">Sessão de produtos</a>
+							<ul>
+								<li><a	href="verduras.html">Verduras</a></li>
+								<li><a	href="frutas.html">Frutas</a></li>
+								<li><a	href="enlatados.html">Enlatados</a></li>
+								<li><a	href="carneseaves.html">Carnes e aves</a></li>
+								<li><a	href="frioselati.html">Frios e laticínios</a></li>
+								<li><a	href="cereais.html">Cereais e farináceos</a></li>
+								<li><a	href="bebidas.html">Bebidas</a></li>
+							</ul>
+						</li>
+				</ul>
+		 </nav>
+ <link rel="stylesheet" href="css/bootstrap.min.css">
+  <style>
+  .badge-notify{
+    background:red;
+    position:relative;
+    top: -20px;
+    right: 10px;
+  }
+  .my-cart-icon-affix {
+    position: fixed;
+
+  }
+  .iconcart{
+  	color: white;
+  }
+  </style>
+</header>
+
+<body class="container">
+
+  <div class="page-header">
+    <h1>Sessão de produtos
+      <div style="float: right; cursor: pointer; color: white;">
+        <span class="glyphicon glyphicon-shopping-cart my-cart-icon"><span class="badge badge-notify my-cart-badge"></span></span>
+      </div>
+    </h1>
+  </div>
+
+  <div class="row">
+    <div class="col-md-3 text-center">
+      <img src="C:\Users\jovan\Downloads\paginas-20190420T182613Z-001\paginas\mercearia\verduras\agriao.jpg" width="150px" height="150px">
+      <br>
+      product 1 - <strong>$10</strong>
+      <br>
+      <button class="btn btn-danger my-cart-btn" data-id="1" data-name="product 1" data-summary="summary 1" data-price="10" data-quantity="1" data-image="C:\Users\jovan\Downloads\paginas-20190420T182613Z-001\paginas\mercearia\verduras\agriao.jpg">Adicionar ao carrinho</button>
+    </div>
+
+    <div class="col-md-3 text-center">
+      <img src="C:\Users\jovan\Downloads\paginas-20190420T182613Z-001\paginas\mercearia\verduras\batata.jpg" width="150px" height="150px">
+      <br>
+      product 2 - <strong>$20</strong>
+      <br>
+      <button class="btn btn-danger my-cart-btn" data-id="2" data-name="product 2" data-summary="summary 2" data-price="20" data-quantity="1" data-image="C:\Users\jovan\Downloads\paginas-20190420T182613Z-001\paginas\mercearia\verduras\batata.jpg">Adicionar ao carrinho</button>
+    </div>
+
+    <div class="col-md-3 text-center">
+      <img src="C:\Users\jovan\Downloads\paginas-20190420T182613Z-001\paginas\mercearia\verduras\brocolis.jpg" width="150px" height="150px">
+      <br>
+      product 3 - <strong>$30</strong>
+      <br>
+      <button class="btn btn-danger my-cart-btn" data-id="3" data-name="product 3" data-summary="summary 3" data-price="30" data-quantity="1" data-image="C:\Users\jovan\Downloads\paginas-20190420T182613Z-001\paginas\mercearia\verduras\brocolis.jpg">Adicionar ao carrinho</button>
+    </div>
+
+    <div class="col-md-3 text-center">
+      <img src="C:\Users\jovan\Downloads\paginas-20190420T182613Z-001\paginas\mercearia\verduras\pepino.jpg" width="150px" height="150px">
+      <br>
+      product 4 - <strong>$40</strong>
+      <br>
+      <button class="btn btn-danger my-cart-btn" data-id="4" data-name="product 4" data-summary="summary 4" data-price="40" data-quantity="1" data-image="C:\Users\jovan\Downloads\paginas-20190420T182613Z-001\paginas\mercearia\verduras\pepino.jpg">Adicionar ao carrinho</button>
+    </div>
+
+    <div class="col-md-3 text-center">
+      <img src="C:\Users\jovan\Downloads\paginas-20190420T182613Z-001\paginas\mercearia\frutas\banana.jpg" width="150px" height="150px">
+      <br>
+      product 5 - <strong>$50</strong>
+      <br>
+      <button class="btn btn-danger my-cart-btn" data-id="5" data-name="product 5" data-summary="summary 5" data-price="50" data-quantity="1" data-image="C:\Users\jovan\Downloads\paginas-20190420T182613Z-001\paginas\mercearia\frutas\banana.jpg">Adicionar ao carrinho</button>
+    </div>
+    
+    <div class="col-md-3 text-center">
+      <img src="C:\Users\jovan\Downloads\paginas-20190420T182613Z-001\paginas\mercearia\frutas\maca.jpg" width="150px" height="150px">
+      <br>
+      product 6 - <strong>$60</strong>
+      <br>
+      <button class="btn btn-danger my-cart-btn" data-id="6" data-name="product 6" data-summary="summary 6" data-price="60" data-quantity="1" data-image="C:\Users\jovan\Downloads\paginas-20190420T182613Z-001\paginas\mercearia\frutas\maca.jpg">Adicionar ao carrinho</button>
+    </div>
+
+    <div class="col-md-3 text-center">
+      <img src="C:\Users\jovan\Downloads\paginas-20190420T182613Z-001\paginas\mercearia\frutas\pera.jpg" width="150px" height="150px">
+      <br>
+      product 7 - <strong>$70</strong>
+      <br>
+      <button class="btn btn-danger my-cart-btn" data-id="7" data-name="product 7" data-summary="summary 7" data-price="70" data-quantity="1" data-image="C:\Users\jovan\Downloads\paginas-20190420T182613Z-001\paginas\mercearia\frutas\pera.jpg">Adicionar ao carrinho</button>
+    </div>
+
+    <div class="col-md-3 text-center">
+      <img src="C:\Users\jovan\Downloads\paginas-20190420T182613Z-001\paginas\mercearia\frutas\laranja.jpg" width="150px" height="150px">
+      <br>
+      product 8 - <strong>$80</strong>
+      <br>
+      <button class="btn btn-danger my-cart-btn" data-id="8" data-name="product 8" data-summary="summary 8" data-price="80" data-quantity="1" data-image="C:\Users\jovan\Downloads\paginas-20190420T182613Z-001\paginas\mercearia\frutas\laranja.jpg">Adicionar ao carrinho</button>
+    </div>
+
+      <div class="col-md-3 text-center">
+      <img src="C:\Users\jovan\Downloads\paginas-20190420T182613Z-001\paginas\mercearia\enlatados\milho.jpg" width="150px" height="150px">
+      <br>
+      product 9 - <strong>$90</strong>
+      <br>
+      <button class="btn btn-danger my-cart-btn" data-id="9" data-name="product 9" data-summary="summary 9" data-price="90" data-quantity="1" data-image="C:\Users\jovan\Downloads\paginas-20190420T182613Z-001\paginas\mercearia\enlatados\milho.jpg">Adicionar ao carrinho</button>
+    </div> 
+
+      <div class="col-md-3 text-center">
+      <img src="C:\Users\jovan\Downloads\paginas-20190420T182613Z-001\paginas\mercearia\enlatados\atum.jpg" width="150px" height="150px">
+      <br>
+      product 10- <strong>$100</strong>
+      <br>
+      <button class="btn btn-danger my-cart-btn" data-id="10" data-name="product 10" data-summary="summary 10" data-price="100" data-quantity="1" data-image="C:\Users\jovan\Downloads\paginas-20190420T182613Z-001\paginas\mercearia\enlatados\atum.jpg">Adicionar ao carrinho</button>
+    </div>
+
+      <div class="col-md-3 text-center">
+      <img src="C:\Users\jovan\Downloads\paginas-20190420T182613Z-001\paginas\mercearia\enlatados\salsicha.jpg" width="150px" height="150px">
+      <br>
+      product 11- <strong>$110</strong>
+      <br>
+      <button class="btn btn-danger my-cart-btn" data-id="11" data-name="product 11" data-summary="summary 11" data-price="110" data-quantity="1" data-image="C:\Users\jovan\Downloads\paginas-20190420T182613Z-001\paginas\mercearia\enlatados\salsicha.jpg">Adicionar ao carrinho</button>
+    </div>
+
+     <div class="col-md-3 text-center">
+      <img src="C:\Users\jovan\Downloads\paginas-20190420T182613Z-001\paginas\mercearia\enlatados\camponesa.jpg" width="150px" height="150px">
+      <br>
+      product 12- <strong>$120</strong>
+      <br>
+      <button class="btn btn-danger my-cart-btn" data-id="11" data-name="product 11" data-summary="summary 11" data-price="110" data-quantity="1" data-image="C:\Users\jovan\Downloads\paginas-20190420T182613Z-001\paginas\mercearia\enlatados\camponesa.jpg">Adicionar ao carrinho</button>
+    </div>
+
+
+
+  </div>
+
+
+  <script src="js/jquery-2.2.3.min.js"></script>
+  <script type='text/javascript' src="js/bootstrap.min.js"></script>
+  <script type='text/javascript' src="js/jquery.mycart.js"></script>
+  <script type="text/javascript">
+  $(function () {
+
+    var goToCartIcon = function($addTocartBtn){
+      var $cartIcon = $(".my-cart-icon");
+      var $image = $('<img width="30px" height="30px" src="' + $addTocartBtn.data("image") + '"/>').css({"position": "fixed", "z-index": "999"});
+      $addTocartBtn.prepend($image);
+      var position = $cartIcon.position();
+      $image.animate({
+        top: position.top,
+        left: position.left
+      }, 500 , "linear", function() {
+        $image.remove();
+      });
+    }
+
+    $('.my-cart-btn').myCart({
+      currencySymbol: '$',
+      classCartIcon: 'my-cart-icon',
+      classCartBadge: 'my-cart-badge',
+      classProductQuantity: 'my-product-quantity',
+      classProductRemove: 'my-product-remove',
+      classCheckoutCart: 'my-cart-checkout',
+      affixCartIcon: true,
+      showCheckoutModal: true,
+      numberOfDecimals: 2,
+      cartItems: [
+      ],
+      clickOnAddToCart: function($addTocart){
+        goToCartIcon($addTocart);
+      },
+      afterAddOnCart: function(products, totalPrice, totalQuantity) {
+        console.log("afterAddOnCart", products, totalPrice, totalQuantity);
+      },
+      clickOnCartIcon: function($cartIcon, products, totalPrice, totalQuantity) {
+        console.log("cart icon clicked", $cartIcon, products, totalPrice, totalQuantity);
+      },
+      checkoutCart: function(products, totalPrice, totalQuantity) {
+        var checkoutString = "Total Price: " + totalPrice + "\nTotal Quantity: " + totalQuantity;
+        checkoutString += "\n\n id \t name \t summary \t price \t quantity \t image path";
+        $.each(products, function(){
+          checkoutString += ("\n " + this.id + " \t " + this.name + " \t " + this.summary + " \t " + this.price + " \t " + this.quantity + " \t " + this.image);
+        });
+        alert(checkoutString)
+        console.log("checking out", products, totalPrice, totalQuantity);
+      },
+
+    });
+
+    $("#addNewProduct").click(function(event) {
+      var currentElementNo = $(".row").children().length + 1;
+      $(".row").append('<div class="col-md-3 text-center"><img src="images/img_empty.png" width="150px" height="150px"><br>product ' + currentElementNo + ' - <strong>$' + currentElementNo + '</strong><br><button class="btn btn-danger my-cart-btn" data-id="' + currentElementNo + '" data-name="product ' + currentElementNo + '" data-summary="summary ' + currentElementNo + '" data-price="' + currentElementNo + '" data-quantity="1" data-image="images/img_empty.png">Add to Cart</button><a href="#" class="btn btn-info">Details</a></div>')
+    });
+  });
+  </script>
+
+
+</body>
+</html>

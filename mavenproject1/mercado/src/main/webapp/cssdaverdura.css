@@ -1,0 +1,73 @@
+body{
+    background-color: #0e1832  !important;
+} 
+.page-header{
+	color: white;
+}
+.row{
+	color: white;
+}
+.menu ul li{
+	background-color: #0e1832;
+	float: left;
+	width: 170px;
+	height: 30px;
+	display: inline-block;
+	text-align: center;
+	text-decoration: none;
+	line-height: 28px;
+	font-size: 18px;
+	position: relative;
+	top: -55px;
+	left: 165px;
+	z-index: 1;
+}
+.menu ul li:hover{
+	background-color: #63e834;
+}
+.menu ul li:hover > ul{
+	display:block;
+}
+.menu ul ul li:hover{
+	background-color: #152766;
+}
+
+.menu ul ul ul li:hover{
+	background-color: #63e834;
+}
+.menu ul ul{
+	display: none;
+}
+.menu a{
+	color: white;
+	text-decoration: none;
+}
+.menu ul{
+	padding: 0px;
+}
+.menu ul ul ul{
+	margin-left: 201px;
+	top: 0px;
+	position: absolute;
+}
+header{
+	background-color:#0e1832;
+	width:1350px;
+    height: 75px;
+}
+.plogo{
+	position: absolute; 
+	right: 150px; 
+	top: 22px;
+}
+.slogo{
+	position: absolute; 
+	right: 87px; 
+	top: 21px;
+}
+.oi{
+	border: solid;
+	width: 30px;
+	background-color:  #0e1832;
+	right: 22px;
+}

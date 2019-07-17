@@ -1,0 +1,118 @@
+
+.menu ul li{
+	background-color: #0e1832;
+	float: left;
+	width: 170px;
+	height: 30px;
+	display: inline-block;
+	text-align: center;
+	line-height: 28px;
+	font-size: 18px;
+	position: relative;
+	top: -62px;
+	left: 165px;
+	z-index: 1;
+}
+.menu ul li:hover{
+	background-color: #63e834;
+}
+.menu ul li:hover > ul{
+	display:block;
+}
+.menu ul ul li:hover{
+	background-color: #152766;
+}
+
+.menu ul ul ul li:hover{
+	background-color: #63e834;
+}
+.menu ul ul{
+	display: none;
+}
+.menu a{
+	color: white;
+	text-decoration: none;
+}
+.menu ul{
+	padding: 0px;
+}
+.menu ul ul ul{
+	margin-left: 201px;
+	top: 0px;
+	position: absolute;
+}
+header{
+	background-color:#0e1832;
+	width:1350px;
+    height: 75px;
+}
+.plogo{
+	position: absolute; 
+	right: 150px; 
+	top: 22px;
+}
+.slogo{
+	position: absolute; 
+	right: 87px; 
+	top: 21px;
+}
+form {
+    /* Apenas para centralizar o form na página */
+    margin: 0 auto;
+    width: 800px;
+    /* Para ver as bordas do formulário */
+    padding: 1em;
+    border: 1px solid #CCC;
+    border-radius: 1em;
+    font-size: 25px;
+}
+form div + div {
+    margin-top: 1em;
+}
+label {
+    /*Para ter certeza que todas as labels tem o mesmo tamanho e estão propriamente alinhadas */
+    display: inline-block;
+    width: 250px;
+    text-align: right;
+}
+input, textarea {
+    /* Para certificar-se que todos os campos de texto têm as mesmas configurações de fonte. Por padrão, textareas ter uma fonte monospace*/
+    font: 1em sans-serif;
+
+    /* Para dar o mesmo tamanho a todos os campo de texto */
+    width: 450px;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+
+    /* Para harmonizar o look & feel das bordas nos campos de texto*/
+    border: 1px solid #999;
+}
+input:focus, textarea:focus {
+    /* Dar um pouco de destaque nos elementos ativos */
+    border-color: #000;
+}
+textarea {
+    /* Para alinhar corretamente os campos de texto de várias linhas com sua label*/
+    vertical-align: top;
+
+    /* Para dar espaço suficiente para digitar algum texto */
+    height: 5em;
+
+    /* Para permitir aos usuários redimensionarem qualquer textarea verticalmente. Ele não funciona em todos os browsers */
+    resize: vertical;
+}
+.button {
+    /* Para posicionar os botões para a mesma posição dos campos de texto */
+    padding-left: 257px; /* mesmo tamanho que os elementos do tipo label */
+    width: 34px;
+    font-size: 25px;
+}
+button {
+    /* Esta margem extra representa aproximadamente o mesmo espaço que o espaço entre as labels e os seus campos de texto*/
+    margin-left: .5em;
+}
+.formulario{
+	position: absolute; 
+    right: 250px; 
+	top: 170px;
+}
