@@ -73,23 +73,23 @@ public class loginadm extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
               
-        String username = request.getParameter("NrCpf");
-        String senha = request.getParameter("DsSenha");
+        String username = request.getParameter("nr_Cpf");
+        String senha = request.getParameter("ds_senha");
         Session session= HibernateUtil.getSession();
-        Cliente user = (Cliente) session.createQuery("from usuario where username = ? and senha = ?")
+        Cliente user = (Cliente) session.createQuery("from Admin where nrCpf = ? and dsSenha = ?")
                 .setString(0, username)
                 .setString(1, senha)
                 .uniqueResult();
+        session.close();
         if (user == null) {
             response.sendRedirect("logininvalido.html");
         } else {
-            response.sendRedirect(".html");
+            response.sendRedirect("homeadm.jsp");
         }
         
 
-    }
+    
         
     }
 
@@ -104,3 +104,4 @@ public class loginadm extends HttpServlet {
     }// </editor-fold>
 
 }
+

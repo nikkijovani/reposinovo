@@ -13,6 +13,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import org.hibernate.Session;
 
 /**
@@ -73,20 +74,22 @@ public class loginclie extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
         
-        
-        String username = request.getParameter("NrCpf");
-        String senha = request.getParameter("DsSenha");
+        String username = request.getParameter("nr_cpf");
+        String senha = request.getParameter("ds_senha");
         Session session= HibernateUtil.getSession();
-        Cliente user = (Cliente) session.createQuery("from usuario where username = ? and senha = ?")
+        Cliente user = (Cliente) session.createQuery("from Cliente where nrCpf = ? and dsSenha = ?")
                 .setString(0, username)
                 .setString(1, senha)
                 .uniqueResult();
+        session.close();
+        System.out.println("Usuario:"+username+"\nSenha:"+senha);
         if (user == null) {
             response.sendRedirect("logininvalido.html");
         } else {
-            response.sendRedirect("index.html");
+            HttpSession sessaoHttp = request.getSession();
+            sessaoHttp.setAttribute("usuario", user);
+            response.sendRedirect("index.jsp");
         }
         
 

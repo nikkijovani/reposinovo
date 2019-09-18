@@ -22,15 +22,15 @@ import javax.xml.bind.annotation.XmlRootElement;
  * @author aluno
  */
 @Entity
-@Table(name = "administrador")
+@Table(name = "admin")
 @XmlRootElement
 @NamedQueries({
-    @NamedQuery(name = "Administrador.findAll", query = "SELECT a FROM Administrador a")
-    , @NamedQuery(name = "Administrador.findByNmNome", query = "SELECT a FROM Administrador a WHERE a.nmNome = :nmNome")
-    , @NamedQuery(name = "Administrador.findByDsSenha", query = "SELECT a FROM Administrador a WHERE a.dsSenha = :dsSenha")
-    , @NamedQuery(name = "Administrador.findByNrCpf", query = "SELECT a FROM Administrador a WHERE a.nrCpf = :nrCpf")
-    , @NamedQuery(name = "Administrador.findByNrTelefone", query = "SELECT a FROM Administrador a WHERE a.nrTelefone = :nrTelefone")})
-public class Administrador implements Serializable {
+    @NamedQuery(name = "Admin.findAll", query = "SELECT a FROM Admin a")
+    , @NamedQuery(name = "Admin.findByNmNome", query = "SELECT a FROM Admin a WHERE a.nmNome = :nmNome")
+    , @NamedQuery(name = "Admin.findByDsSenha", query = "SELECT a FROM Admin a WHERE a.dsSenha = :dsSenha")
+    , @NamedQuery(name = "Admin.findByNrCpf", query = "SELECT a FROM Admin a WHERE a.nrCpf = :nrCpf")
+    , @NamedQuery(name = "Admin.findByNrTelefone", query = "SELECT a FROM Admin a WHERE a.nrTelefone = :nrTelefone")})
+public class Admin implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Size(max = 100)
@@ -42,15 +42,17 @@ public class Administrador implements Serializable {
     @Id
     @Basic(optional = false)
     @NotNull
+    @Size(min = 1, max = 100)
     @Column(name = "nr_cpf")
-    private Integer nrCpf;
+    private String nrCpf;
+    @Size(max = 100)
     @Column(name = "nr_telefone")
-    private Integer nrTelefone;
+    private String nrTelefone;
 
-    public Administrador() {
+    public Admin() {
     }
 
-    public Administrador(Integer nrCpf) {
+    public Admin(String nrCpf) {
         this.nrCpf = nrCpf;
     }
 
@@ -70,19 +72,19 @@ public class Administrador implements Serializable {
         this.dsSenha = dsSenha;
     }
 
-    public Integer getNrCpf() {
+    public String getNrCpf() {
         return nrCpf;
     }
 
-    public void setNrCpf(Integer nrCpf) {
+    public void setNrCpf(String nrCpf) {
         this.nrCpf = nrCpf;
     }
 
-    public Integer getNrTelefone() {
+    public String getNrTelefone() {
         return nrTelefone;
     }
 
-    public void setNrTelefone(Integer nrTelefone) {
+    public void setNrTelefone(String nrTelefone) {
         this.nrTelefone = nrTelefone;
     }
 
@@ -96,10 +98,10 @@ public class Administrador implements Serializable {
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof Administrador)) {
+        if (!(object instanceof Admin)) {
             return false;
         }
-        Administrador other = (Administrador) object;
+        Admin other = (Admin) object;
         if ((this.nrCpf == null && other.nrCpf != null) || (this.nrCpf != null && !this.nrCpf.equals(other.nrCpf))) {
             return false;
         }
@@ -108,7 +110,7 @@ public class Administrador implements Serializable {
 
     @Override
     public String toString() {
-        return "br.edu.iff.mercado.entidades.Administrador[ nrCpf=" + nrCpf + " ]";
+        return "br.edu.iff.mercado.entidades.Admin[ nrCpf=" + nrCpf + " ]";
     }
     
 }
