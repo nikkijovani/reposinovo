@@ -78,12 +78,12 @@ public class loginclie extends HttpServlet {
         String username = request.getParameter("nr_cpf");
         String senha = request.getParameter("ds_senha");
         Session session= HibernateUtil.getSession();
-        Cliente user = (Cliente) session.createQuery("from Cliente where nrCpf = ? and dsSenha = ?")
+        Cliente user = (Cliente) session.createQuery("from Cliente where nr_cpf = ? and ds_senha = ?")
                 .setString(0, username)
                 .setString(1, senha)
                 .uniqueResult();
         session.close();
-        System.out.println("Usuario:"+username+"\nSenha:"+senha);
+        //System.out.println("Usuario:"+username+"\nSenha:"+senha);
         if (user == null) {
             response.sendRedirect("logininvalido.html");
         } else {
