@@ -12,6 +12,10 @@
         <servlet-name>loginadm</servlet-name>
         <servlet-class>br.edu.iff.mercado.servlet.loginadm</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>DeletarAdmin</servlet-name>
+        <servlet-class>br.edu.iff.mercado.servlet.DeletarAdmin</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>cadastroclie</servlet-name>
         <url-pattern>/cadastroclie</url-pattern>
@@ -23,6 +27,10 @@
     <servlet-mapping>
         <servlet-name>loginadm</servlet-name>
         <url-pattern>/loginadm</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DeletarAdmin</servlet-name>
+        <url-pattern>/DeletarAdmin</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

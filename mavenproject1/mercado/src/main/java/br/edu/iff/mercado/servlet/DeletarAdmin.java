@@ -5,21 +5,18 @@
  */
 package br.edu.iff.mercado.servlet;
 
-import br.edu.iff.mercado.entidades.Admin;
-import br.edu.iff.mercado.util.HibernateUtil;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import org.hibernate.Session;
 
 /**
  *
  * @author aluno
  */
-public class loginadm extends HttpServlet {
+public class DeletarAdmin extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -38,10 +35,10 @@ public class loginadm extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet loginadm</title>");            
+            out.println("<title>Servlet DeletarAdmin</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet loginadm at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Servlet DeletarAdmin at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
@@ -73,24 +70,7 @@ public class loginadm extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-              
-        String username = request.getParameter("nr_cpf");
-        String senha = request.getParameter("ds_senha");
-        Session session= HibernateUtil.getSession();
-        Admin user = (Admin) session.createQuery("from Admin where nrCpf = ? and dsSenha = ?")
-                .setString(0, username)
-                .setString(1, senha)
-                .uniqueResult();
-        session.close();
-        if (user == null) {
-            response.sendRedirect("logininvalido.html");
-        } else {
-            response.sendRedirect("homeadm.jsp");
-        }
-        
-
-    
-        
+        processRequest(request, response);
     }
 
     /**
@@ -104,4 +84,3 @@ public class loginadm extends HttpServlet {
     }// </editor-fold>
 
 }
-
