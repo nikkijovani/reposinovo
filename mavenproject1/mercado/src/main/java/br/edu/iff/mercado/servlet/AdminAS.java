@@ -22,9 +22,11 @@ public class AdminAS extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         //Captura parametros da tela
-        String idtext = request.getParameter("pid");
-        String NmNome = request.getParameter("NmNome");
-        String DsSenha = request.getParameter("DsSenha");
+        String idtext = request.getParameter("id");
+        String NmNome = request.getParameter("nome");
+        String DsSenha = request.getParameter("senha");
+        String NrTelefone = request.getParameter("telefone");
+        String NrCpf = request.getParameter("cpf");
 
         //Cria instancia do usuario
         Admin usuario = new Admin();        
@@ -36,11 +38,12 @@ public class AdminAS extends HttpServlet {
         //Insere informações no objeto
         usuario.setNmNome(NmNome);
         usuario.setDsSenha(DsSenha);
-
+        usuario.setNrTelefone(NrTelefone);
+        usuario.setNrCpf(NrCpf);
         //Chama de funcao para salvar ou atualizar usuario
         Adminnn.salvar(usuario);
         
         //Redireciona pagina
-        response.sendRedirect("index.html");
+        response.sendRedirect("indexadm.html");
     }
 }

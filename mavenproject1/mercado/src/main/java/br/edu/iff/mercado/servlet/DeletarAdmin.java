@@ -21,7 +21,7 @@ public class DeletarAdmin extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         //Captura id da tela
-        String idtext = request.getParameter("pid");
+        String idtext = request.getParameter("id");
         
         //Cria instancia do usuario com id informado
         Admin usuario = new Admin();
@@ -31,6 +31,6 @@ public class DeletarAdmin extends HttpServlet {
         Adminnn.deletar(usuario);
         
         //Redireciona pagina
-        response.sendRedirect("index.html");
+        response.sendRedirect("indexadm.html");
     }
 }

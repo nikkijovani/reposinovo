@@ -39,7 +39,7 @@ public class Adminnn {
         Session sessionRecheio;
         sessionRecheio = HibernateUtil.getSession();
         Transaction tr = sessionRecheio.beginTransaction();
-        String hql = "from Usuario u where u.id='"+idUsuario+"'";
+        String hql = "from Admin u where u.id='"+idUsuario+"'";
         Admin usuario = (Admin)sessionRecheio.createQuery(hql).uniqueResult();
         tr.commit();
         return usuario;
@@ -51,7 +51,7 @@ public class Adminnn {
         Session sessionRecheio;
         sessionRecheio = HibernateUtil.getSession();
         Transaction tr = sessionRecheio.beginTransaction();
-        String hql = "from Usuario u";
+        String hql = "from Admin u";
         List<Admin> lista = (List)sessionRecheio.createQuery(hql).list();
         tr.commit();
         return lista;
