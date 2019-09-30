@@ -26,6 +26,6 @@
             <display:setProperty name="basic.msg.empty_list" value="Nenhum admin cadastrado." />
         </display:table>
         <br><br>
-        <a href="alterar.jsp?id=" >Criar novo usuario</a>
+        <a href="alterar.jsp?id=" >Criar novo usuario admin</a>
     </body>
 </html>
