@@ -42,7 +42,7 @@
 						<li><a	href="cadastro.html">Cadastro</a></li>
                                                 <% } else { %>
                                                 <li><a	href="editarperfil.jsp">Configurações</a></li>
-                                                <li><a	href="#">Olá, <%=usuario.getNmNome()%></a></li>
+                                                <li><a	href="perfilcliente.html">Olá, <%=usuario.getNmNome()%>!</a></li>
                                                 <li><a	href="servletLogout">Sair</a></li>
                                                 <% } %>
 					</ul>
@@ -51,5 +51,6 @@
 		</header>
 	
 		    <img src="imagens /pinicial.png" alt="logo da página inicial" id="imgpos">
+                  
 	</body>
 </html>

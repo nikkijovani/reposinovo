@@ -20,6 +20,14 @@
         <servlet-name>AdminAS</servlet-name>
         <servlet-class>br.edu.iff.mercado.servlet.AdminAS</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>DeletarCliente</servlet-name>
+        <servlet-class>br.edu.iff.mercado.servlet.DeletarCliente</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ClienteAS</servlet-name>
+        <servlet-class>br.edu.iff.mercado.servlet.ClienteAS</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>cadastroclie</servlet-name>
         <url-pattern>/cadastroclie</url-pattern>
@@ -39,6 +47,14 @@
     <servlet-mapping>
         <servlet-name>AdminAS</servlet-name>
         <url-pattern>/AdminAS</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DeletarCliente</servlet-name>
+        <url-pattern>/DeletarCliente</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ClienteAS</servlet-name>
+        <url-pattern>/ClienteAS</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

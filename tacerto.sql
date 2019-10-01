@@ -1,4 +1,4 @@
---
+﻿--
 -- PostgreSQL database dump
 --
 
@@ -109,8 +109,7 @@ ALTER TABLE sq_usuario OWNER TO postgres;
 -- Data for Name: admin; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-COPY admin (nm_nome, nr_cpf, ds_senha, nr_telefone, id) FROM stdin;
-\.
+
 
 
 --
@@ -119,10 +118,7 @@ COPY admin (nm_nome, nr_cpf, ds_senha, nr_telefone, id) FROM stdin;
 -- Data for Name: cliente; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-COPY cliente (nr_telefone, nr_cpf, nr_rg, ds_senha, ds_email, endereco, nm_nome, id) FROM stdin;
-98720410	11122244455	1452011440	123	jovaniferreirainfo2017@gmail.com	Rua eta	Jovani	50
-558972052	11144455566	114050440	1234	carla@gmail.com	rua opa	carla	100
-\.
+
 
 
 --
