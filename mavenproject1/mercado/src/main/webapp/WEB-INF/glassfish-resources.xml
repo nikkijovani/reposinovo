@@ -13,4 +13,5 @@
     <jdbc-resource enabled="true" jndi-name="java:app/jovani" object-type="user" pool-name="post-gre-sql_opa_postgresPool"/>
     <jdbc-resource enabled="true" jndi-name="java:app/jovanii" object-type="user" pool-name="post-gre-sql_opa_postgresPool"/>
     <jdbc-resource enabled="true" jndi-name="java:app/jjovani" object-type="user" pool-name="post-gre-sql_opa_postgresPool"/>
+    <jdbc-resource enabled="true" jndi-name="java:app/Produto.java" object-type="user" pool-name="post-gre-sql_opa_postgresPool"/>
 </resources>
