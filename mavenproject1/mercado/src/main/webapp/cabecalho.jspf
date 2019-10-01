@@ -27,7 +27,7 @@
 						<li><a	href="cadastro.html">Cadastro</a></li>
                                                 <% } else { %>
                                                 <li><a	href="editarperfil.jsp">Configurações</a></li>
-                                                <li><a	href="#">Olá, <%=usuario.getNmNome()%></a></li>
+                                                <li><a	href="perfilcliente.jsp">Olá, <%=usuario.getNmNome()%>!</a></li>
                                                 <li><a	href="servletLogout">Sair</a></li>
                                                 <% } %>
 					</ul>
