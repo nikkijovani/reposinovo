@@ -1,24 +1,8 @@
-<%-- 
-    Document   : index
-    Created on : 18/09/2019, 11:32:45
-    Author     : aluno
---%>
-
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%-- any content can be specified here e.g.: --%>
+<%@ page pageEncoding="UTF-8" %>
 <jsp:directive.page import="br.edu.iff.mercado.entidades.*"/>
 <jsp:directive.page import="java.util.*"/>
-
-<!DOCTYPE html>
-<html style="border: 0em;">
-	<head>
-		<meta charset="utf-8">
-		<link rel="stylesheet" type="text/css" href="beleza.css">
-		<title>Mercearia online</title>
-	</head>
-
-	<body>
-<<<<<<< HEAD
-		<header>
+<header>
 			<img src="imagens /logosite.png" width=155px right=55px alt="Mercearia online">
 			   <nav class="menu">
 					<ul>
@@ -35,7 +19,7 @@
 								<li><a	href="bebidas.html">Bebidas</a></li>
 							</ul>
 						</li>
-                                                <li> <a href="admlogin.html">Adm</a> </li>
+                                                <li> <a href="loginadm.jsp">Adm</a> </li>
                                                 <% Cliente usuario = (Cliente) session.getAttribute("usuario");
                                                     if (usuario == null) {
                                                 %>
@@ -43,22 +27,10 @@
 						<li><a	href="cadastro.html">Cadastro</a></li>
                                                 <% } else { %>
                                                 <li><a	href="editarperfil.jsp">Configurações</a></li>
-                                                <li><a	href="perfilcliente.html">Olá, <%=usuario.getNmNome()%>!</a></li>
+                                                <li><a	href="#">Olá, <%=usuario.getNmNome()%></a></li>
                                                 <li><a	href="servletLogout">Sair</a></li>
                                                 <% } %>
 					</ul>
 			 </nav>
 		
 		</header>
-	
-		    <img src="imagens /pinicial.png" alt="logo da página inicial" id="imgpos">
-                  
-=======
-		<%@ include file="cabecalho.jspf" %>
-	
-		    <img src="imagens /pinicial.png" alt="logo da página inicial" id="imgpos">
-                    
-                    <!--%@ include file="rodape.jspf" %-->
->>>>>>> cc9ca5423ed6d4f656e172bbfceb68ff6191f03f
-	</body>
-</html>
