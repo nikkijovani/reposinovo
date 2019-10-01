@@ -50,6 +50,6 @@ public class ClienteAS extends HttpServlet {
         ClienteControle.salvar(usuario);
         
         //Redireciona pagina
-        response.sendRedirect("perfilcliente.html");
+        response.sendRedirect("perfilcliente.jsp");
     }
 }

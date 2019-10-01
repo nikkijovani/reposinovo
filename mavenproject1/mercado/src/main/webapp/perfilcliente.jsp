@@ -4,6 +4,8 @@
     Author     : aluno
 --%>
 
+<%@page import="br.edu.iff.mercado.entidades.Cliente"%>
+<%@page import="br.edu.iff.mercado.servlet.ClienteControle"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -12,15 +14,32 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <%@ include file="cabecalho.jspf" %>
-        
-       value="<%usuario.getNome();%>" 
-        
+
+         
         <section>
         
        <div class="formulario">  
+<%
+        //Criar variaveis
+        Cliente usuario = new Cliente();
+        String nome = "";
+        String senha = "";
 
-            <form method="post" action="cadastroclie" >                  
+        //Captura id (se alteração)
+        String idUsuario = request.getParameter("pid");
+        
+        //Localiza usuario (se alteração)
+        if(!idUsuario.isEmpty()){
+            usuario = ClienteControle.buscar(Integer.parseInt(idUsuario));
+            nome = usuario.getNmNome();
+            senha = usuario.getDsSenha();            
+        }
+        else{
+            idUsuario = "";
+        }
+        
+        %>
+            <form method="POST" action="ClienteAS" >                  
              <div>  
                 <label>* Nome</label>
                 <input name="nm_nome" type="text" class="g"value="<%usuario.getNmNome();%>">
@@ -53,8 +72,12 @@
                 <label>Confirmar senha</label>
                 <input name="ds_senha" type="password" class="p">  
             </div>
+            <div>
+                <label>ID</label>
+                <input name="id" type="text" value="">  
+            </div>
             <div class="button">
-                <input type="submit" value="Enviar">
+                <input type="submit" value="Alterar">
             </div>
             </form>
       </div><!--/formulario-->

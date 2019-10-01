@@ -1,10 +1,11 @@
-<%@page import="br.edu.iff.mercado.servlet"%>
+
+<%@page import="br.edu.iff.mercado.servlet.ClienteControle"%>
 <%@page import="org.hibernate.Session"%>
 <%@page import="org.hibernate.Transaction"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<jsp:directive.page import="entidades.*" />
+<jsp:directive.page import="br.edu.iff.mercado.entidades.*" />
 <jsp:directive.page import="java.util.*" />
-<jsp:directive.page import="utilidades.HibernateUtil" />
+<jsp:directive.page import="br.edu.iff.mercado.HibernateUtil" />
 
 <!DOCTYPE html>
 <html>
@@ -13,10 +14,10 @@
         <title>Crud</title>
     </head>
     <body>
-        <h1>Leitura e alteração!</h1>
+        
         <%
         //Criar variaveis
-        Usuario usuario = new Usuario();
+        Cliente usuario = new Cliente();
         String nome = "";
         String senha = "";
 
@@ -25,16 +26,16 @@
         
         //Localiza usuario (se alteração)
         if(!idUsuario.isEmpty()){
-            usuario = UsuarioControle.buscar(Integer.parseInt(idUsuario));
-            nome = usuario.getNome();
-            senha = usuario.getSenha();            
+            usuario = ClienteControle.buscar(Integer.parseInt(idUsuario));
+            nome = usuario.getNmNome();
+            senha = usuario.getDsSenha();            
         }
         else{
             idUsuario = "";
         }
         
         %>
-        <form method="POST" action="UsuarioServletSA">
+        <form method="POST" action="ClienteAS">
             <div hidden>
                 ID<input type="text" name="pid" value="<%=idUsuario%>">
             </div>
