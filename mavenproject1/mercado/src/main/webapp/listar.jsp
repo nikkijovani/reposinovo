@@ -7,10 +7,13 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel="stylesheet" type="text/css" href="beleza.css">
         <title>Crud Admin</title>
     </head>
     <body>
-        <h1>Lista dos usuários admin's</h1>
+        <%@ include file="cabecalhoadm.jspf" %>
+        <br>
+        <h2>Lista dos usuários admin's</h2>
         <%
             List<Admin> lista = Adminnn.listar();
             request.setAttribute( "usuarios", lista );
@@ -25,7 +28,6 @@
             <display:column value="deletar" title="Deletar" autolink="true"  paramId="id" paramProperty="id" href="${pageContext.request.contextPath}/DeletarAdmin"/>
             <display:setProperty name="basic.msg.empty_list" value="Nenhum admin cadastrado." />
         </display:table>
-        <br><br>
-        <a href="alterar.jsp?id=" >Criar novo usuario admin</a>
+        <br>
     </body>
 </html>

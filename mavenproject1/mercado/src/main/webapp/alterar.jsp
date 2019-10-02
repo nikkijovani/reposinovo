@@ -10,10 +10,13 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel="stylesheet" type="text/css" href="beleza.css">
         <title>Crud</title>
     </head>
     <body>
-        <h1>Leitura e alteração!</h1>
+        <%@ include file="cabecalhoadm.jspf" %>
+        <br> 
+        <h2>Leitura e alteração!</h2>
         <%
         //Criar variaveis
         Admin usuario = new Admin();
@@ -46,7 +49,7 @@
             Nome<input type="text" name="nome" value="<%=nome%>">
             Senha<input type="text" name="senha" value="<%=senha%>">
             Telefone<input type="text" name="telefone" value="<%=telefone%>">
-            Cpf<input type="text" name="cpf" value="<%=cpf%>">
+            CPF<input type="text" name="cpf" value="<%=cpf%>">
             <input type="submit">
         </form>
     </body>

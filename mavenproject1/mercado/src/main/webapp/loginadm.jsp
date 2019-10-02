@@ -10,21 +10,23 @@
 <head>
 	<title> Login </title>
 	<meta charset="utf-8">
-	<link rel="stylesheet" type="text/css" href="cssadmlogin.css">
+	<link rel="stylesheet" type="text/css" href="cssdologin.css">
+        <link rel="stylesheet" type="text/css" href="beleza.css">
 </head>
 <body>
     <%@ include file="cabecalho.jspf" %>
+    <br> <br> <br>
 <form action="loginadm" method="post">
     <div>
-        <label>CPF:</label>
+        <label>Digite seu CPF:</label>
         <input type="text" name="nr_cpf" />
     </div>
     <div>
-        <label>Senha:</label>
-        <input type="senha" name="ds_senha"/>
+        <label>Digite sua senha:</label>
+        <input type="password" name="ds_senha"/>
     </div>
     <div class="button">
-        <button type="submit">Enviar</button>
+        <input type="submit" value="Enviar">
     </div>
 </form>
 </body>

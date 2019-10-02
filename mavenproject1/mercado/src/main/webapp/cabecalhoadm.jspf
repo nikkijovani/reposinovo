@@ -1,0 +1,16 @@
+<%-- any content can be specified here e.g.: --%>
+<%@ page pageEncoding="UTF-8" %>
+<jsp:directive.page import="br.edu.iff.mercado.entidades.*"/>
+<jsp:directive.page import="java.util.*"/>
+<header>
+			<img src="imagens /logosite.png" width=155px right=55px alt="Mercearia online">
+			   <nav class="menu">
+					<ul>
+                                                <li><a href="indexadm.jsp">Página Inicial</a></li>
+						<li><a	href="listar.jsp">Listar Admin's</a></li>
+                                                <li><a href="alterar.jsp?id=" >Criar um novo Admin</a></li>
+					</ul>
+			 </nav>
+		
+		</header>
+                
