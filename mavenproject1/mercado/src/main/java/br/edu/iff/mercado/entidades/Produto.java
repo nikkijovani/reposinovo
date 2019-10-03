@@ -6,21 +6,19 @@
 package br.edu.iff.mercado.entidades;
 
 import java.io.Serializable;
-import java.util.Collection;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
-import javax.persistence.OneToMany;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
@@ -34,11 +32,12 @@ import javax.xml.bind.annotation.XmlTransient;
     , @NamedQuery(name = "Produto.findByCdProdutos", query = "SELECT p FROM Produto p WHERE p.cdProdutos = :cdProdutos")
     , @NamedQuery(name = "Produto.findByNmNome", query = "SELECT p FROM Produto p WHERE p.nmNome = :nmNome")
     , @NamedQuery(name = "Produto.findByVlUnidade", query = "SELECT p FROM Produto p WHERE p.vlUnidade = :vlUnidade")
-    , @NamedQuery(name = "Produto.findByNmMarca", query = "SELECT p FROM Produto p WHERE p.nmMarca = :nmMarca")})
+    , @NamedQuery(name = "Produto.findByNmMarca", query = "SELECT p FROM Produto p WHERE p.nmMarca = :nmMarca")
+    , @NamedQuery(name = "Produto.findByCdSessao", query = "SELECT p FROM Produto p WHERE p.cdSessao = :cdSessao")
+    , @NamedQuery(name = "Produto.findById", query = "SELECT p FROM Produto p WHERE p.id = :id")})
 public class Produto implements Serializable {
 
     private static final long serialVersionUID = 1L;
-    @Id
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 500)
@@ -52,16 +51,26 @@ public class Produto implements Serializable {
     @Size(max = 500)
     @Column(name = "nm_marca")
     private String nmMarca;
-    @OneToMany(mappedBy = "cdSessao")
-    private Collection<Produto> produtoCollection;
-    @JoinColumn(name = "cd_sessao", referencedColumnName = "cd_produtos")
-    @ManyToOne
-    private Produto cdSessao;
+    @Size(max = 500)
+    @Column(name = "cd_sessao")
+    private String cdSessao;
+    @Id
+    @Basic(optional = false)
+    @NotNull
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "minhageradora")
+    @SequenceGenerator(name = "minhageradora", sequenceName = "sq_produto")
+    @Column(name = "id")
+    private Integer id;
 
     public Produto() {
     }
 
-    public Produto(String cdProdutos) {
+    public Produto(Integer id) {
+        this.id = id;
+    }
+
+    public Produto(Integer id, String cdProdutos) {
+        this.id = id;
         this.cdProdutos = cdProdutos;
     }
 
@@ -97,27 +106,26 @@ public class Produto implements Serializable {
         this.nmMarca = nmMarca;
     }
 
-    @XmlTransient
-    public Collection<Produto> getProdutoCollection() {
-        return produtoCollection;
-    }
-
-    public void setProdutoCollection(Collection<Produto> produtoCollection) {
-        this.produtoCollection = produtoCollection;
-    }
-
-    public Produto getCdSessao() {
+    public String getCdSessao() {
         return cdSessao;
     }
 
-    public void setCdSessao(Produto cdSessao) {
+    public void setCdSessao(String cdSessao) {
         this.cdSessao = cdSessao;
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     @Override
     public int hashCode() {
         int hash = 0;
-        hash += (cdProdutos != null ? cdProdutos.hashCode() : 0);
+        hash += (id != null ? id.hashCode() : 0);
         return hash;
     }
 
@@ -128,7 +136,7 @@ public class Produto implements Serializable {
             return false;
         }
         Produto other = (Produto) object;
-        if ((this.cdProdutos == null && other.cdProdutos != null) || (this.cdProdutos != null && !this.cdProdutos.equals(other.cdProdutos))) {
+        if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
             return false;
         }
         return true;
@@ -136,7 +144,7 @@ public class Produto implements Serializable {
 
     @Override
     public String toString() {
-        return "br.edu.iff.mercado.entidades.Produto[ cdProdutos=" + cdProdutos + " ]";
+        return "br.edu.iff.mercado.entidades.Produto[ id=" + id + " ]";
     }
     
 }
