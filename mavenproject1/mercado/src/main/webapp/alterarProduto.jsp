@@ -1,5 +1,5 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<jsp:directive.page import="br.edu.iff.mercado.entidades*"/>
+<jsp:directive.page import="br.edu.iff.mercado.entidades.Produto.java"/>
 <jsp:directive.page import="java.util*"/>
 <jsp:directive.page impor="br.edu.iff.mercado.util.HibernateUtil"/>
 <!DOCTYPE html>

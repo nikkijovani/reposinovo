@@ -1,4 +1,4 @@
---
+﻿--
 -- PostgreSQL database dump
 --
 
@@ -139,10 +139,6 @@ ALTER TABLE sq_usuario OWNER TO postgres;
 -- Data for Name: admin; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-COPY admin (nm_nome, nr_cpf, ds_senha, nr_telefone, id) FROM stdin;
-Simone	11122233344	123456	98728780	48
-Guilherme	44455566633	123	98728781	50
-\.
 
 
 --
@@ -151,8 +147,6 @@ Guilherme	44455566633	123	98728781	50
 -- Data for Name: cliente; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-COPY cliente (nr_telefone, nr_cpf, nr_rg, ds_senha, ds_email, endereco, nm_nome, id) FROM stdin;
-\.
 
 
 --
@@ -161,9 +155,6 @@ COPY cliente (nr_telefone, nr_cpf, nr_rg, ds_senha, ds_email, endereco, nm_nome,
 -- Data for Name: produto; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-COPY produto (cd_produtos, nm_nome, vl_unidade, nm_marca, cd_sessao, id) FROM stdin;
-\.
-
 
 --
 -- TOC entry 2165 (class 0 OID 33692)
@@ -171,15 +162,6 @@ COPY produto (cd_produtos, nm_nome, vl_unidade, nm_marca, cd_sessao, id) FROM st
 -- Data for Name: sessao; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-COPY sessao (cd_sessao, nm_nome) FROM stdin;
-Fruta	\N
-Verura	\N
-Enlatados	\N
-Carnes e aves	\N
-Frios e laticínios	\N
-Cereais e farináceos	\N
-Bebidas	\N
-\.
 
 
 --

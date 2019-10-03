@@ -1,6 +1,6 @@
 <%@page import="br.edu.iff.mercado.entidades.Produto"%>
 <%@page import="br.edu.iff.mercado.entidades.Produto"%>
-<%@page import="br.edu.iff.mercado.servlet.*"%>
+<%@page import="br.edu.iff.mercado.servlet.CadastrarProdutos"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib uri="http://displaytag.sf.net" prefix="display"%>
 <jsp:directive.page import="entidades.*" />
