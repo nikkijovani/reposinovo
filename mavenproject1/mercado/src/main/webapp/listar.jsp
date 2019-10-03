@@ -7,7 +7,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <link rel="stylesheet" type="text/css" href="beleza.css">
+        <link rel="stylesheet" type="text/css" href="css\beleza.css">
         <title>Crud Admin</title>
     </head>
     <body>
