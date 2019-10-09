@@ -1,5 +1,4 @@
 <%@page import="br.edu.iff.mercado.entidades.Produto"%>
-<%@page import="br.edu.iff.mercado.entidades.Produto"%>
 <%@page import="br.edu.iff.mercado.servlet.CadastrarProdutos"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib uri="http://displaytag.sf.net" prefix="display"%>

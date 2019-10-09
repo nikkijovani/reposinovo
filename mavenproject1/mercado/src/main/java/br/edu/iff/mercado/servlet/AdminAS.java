@@ -44,6 +44,6 @@ public class AdminAS extends HttpServlet {
         Adminnn.salvar(usuario);
         
         //Redireciona pagina
-        response.sendRedirect("indexadm.html");
+        response.sendRedirect("listar.jsp");
     }
 }
