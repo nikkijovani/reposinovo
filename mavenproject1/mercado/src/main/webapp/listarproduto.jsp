@@ -2,7 +2,8 @@
 <%@page import="br.edu.iff.mercado.servlet.CadastrarProdutos"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib uri="http://displaytag.sf.net" prefix="display"%>
-<jsp:directive.page import="entidades.*" />
+<jsp:directive.page import="br.edu.iff.mercado.classes.*"/>
+<jsp:directive.page import="br.edu.iff.mercado.entidades.*"/>
 <jsp:directive.page import="java.util.*" />
 <!DOCTYPE html>
 <html>
@@ -13,8 +14,8 @@
     <body>
         <h1>Lista dos produtos</h1>
         <%
-            List<Produto> lista = Produto.listar();
-            request.setAttribute( "usuarios", lista );
+            List<Produto> lista = Produtos.listar();
+            request.setAttribute( "produtos", lista );
         %>
         <display:table name="Produto">
             <display:column property="id" title="ID" paramProperty="checkbox"/>
@@ -24,7 +25,7 @@
             <display:column value="deletar" title="Deletar" autolink="true"  paramId="pid" paramProperty="id" href="${pageContext.request.contextPath}/UsuarioServletD"/>
             <display:setProperty name="basic.msg.empty_list" value="Sem produtos" />
         </display:table>
-        <br><br>
-        <a href="alterar.jsp?pid=" >Criar novo usuario</a>
+        <br><br/>
+        <a href="alterar.jsp?pid=" >Criar novo produto</a>
     </body>
 </html>
