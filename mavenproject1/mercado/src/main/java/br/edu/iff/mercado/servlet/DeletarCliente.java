@@ -31,6 +31,6 @@ public class DeletarCliente extends HttpServlet {
         ClienteControle.deletar(usuario);
         
         //Redireciona pagina
-        response.sendRedirect("perfilcliente.jsp");
+        response.sendRedirect("index.jsp");
     }
 }

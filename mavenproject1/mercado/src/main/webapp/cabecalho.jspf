@@ -20,7 +20,7 @@
 							</ul>
 						</li>
                                                 <li> <a href="loginadm.jsp">Adm</a> </li>
-                                                <% Cliente usuario = (Cliente) session.getAttribute("usuario");
+                                                <% Cliente usuario = (Cliente) session.getAttribute("usuariologado");
                                                     if (usuario == null) {
                                                 %>
 						<li><a	href="login.html">Login</a></li>
