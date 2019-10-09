@@ -31,6 +31,6 @@ public class DeletarAdmin extends HttpServlet {
         Adminnn.deletar(usuario);
         
         //Redireciona pagina
-        response.sendRedirect("indexadm.html");
+        response.sendRedirect("listar.jsp");
     }
 }

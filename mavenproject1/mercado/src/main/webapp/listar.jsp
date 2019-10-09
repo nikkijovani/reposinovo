@@ -7,7 +7,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <link rel="stylesheet" type="text/css" href="beleza.css">
+        <link rel="stylesheet" type="text/css" href="css\beleza.css">
         <title>Crud Admin</title>
     </head>
     <body>
@@ -21,7 +21,6 @@
         <display:table name="usuarios">
             <display:column property="id" title="ID" paramProperty="checkbox"/>
             <display:column property="nmNome" title="Nome"/>
-            <display:column property="dsSenha" title="Senha"/>
             <display:column property="nrTelefone" title="Telefone"/>
             <display:column property="nrCpf" title="Cpf"/>
             <display:column value="alterar" title="Alterar" href="alterar.jsp" paramId="id" paramProperty="id" />             

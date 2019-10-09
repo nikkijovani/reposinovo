@@ -88,7 +88,7 @@ public class loginclie extends HttpServlet {
             response.sendRedirect("logininvalido.html");
         } else {
             HttpSession sessaoHttp = request.getSession();
-            sessaoHttp.setAttribute("usuariologado", user);
+            sessaoHttp.setAttribute("usuario", user);
             response.sendRedirect("index.jsp");
         }
         

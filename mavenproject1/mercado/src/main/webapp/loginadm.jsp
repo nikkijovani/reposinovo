@@ -10,8 +10,8 @@
 <head>
 	<title> Login </title>
 	<meta charset="utf-8">
-	<link rel="stylesheet" type="text/css" href="cssdologin.css">
-        <link rel="stylesheet" type="text/css" href="beleza.css">
+	<link rel="stylesheet" type="text/css" href="css\cssdologin.css">
+        <link rel="stylesheet" type="text/css" href="css\beleza.css">
 </head>
 <body>
     <%@ include file="cabecalho.jspf" %>
