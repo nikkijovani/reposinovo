@@ -5,6 +5,7 @@
  */
 package br.edu.iff.mercado.servlet;
 
+import br.edu.iff.mercado.controles.ControleAdmin;
 import br.edu.iff.mercado.entidades.Admin;
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -28,9 +29,9 @@ public class DeletarAdmin extends HttpServlet {
         usuario.setId(Integer.parseInt(idtext));
         
         //Chama de funcao para apagar usuario
-        Adminnn.deletar(usuario);
+        ControleAdmin.deletar(usuario);
         
         //Redireciona pagina
-        response.sendRedirect("listar.jsp");
+        response.sendRedirect("listarAdmin.jsp");
     }
 }

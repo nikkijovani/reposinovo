@@ -1,5 +1,5 @@
 <%@page import="br.edu.iff.mercado.entidades.Admin"%>
-<%@page import="br.edu.iff.mercado.servlet.Adminnn"%>
+<%@page import="br.edu.iff.mercado.controles.ControleAdmin"%>
 <%@page import="org.hibernate.Session"%>
 <%@page import="org.hibernate.Transaction"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -30,7 +30,7 @@
         
         //Localiza usuario (se alteração)
         if(!idUsuario.isEmpty()){
-            usuario = Adminnn.buscar(Integer.parseInt(idUsuario));
+            usuario = ControleAdmin.buscar(Integer.parseInt(idUsuario));
             nome = usuario.getNmNome();
             senha = usuario.getDsSenha();
             telefone = usuario.getNrTelefone();

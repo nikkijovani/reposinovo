@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package br.edu.iff.mercado.servlet;
+package br.edu.iff.mercado.controles;
 
 import br.edu.iff.mercado.entidades.Admin;
 import br.edu.iff.mercado.util.HibernateUtil;
@@ -15,7 +15,7 @@ import org.hibernate.Transaction;
  *
  * @author aluno
  */
-public class Adminnn {
+public class ControleAdmin {
     
     //Função de salvar/atualizar um usuario
     public static boolean salvar(Admin usuario){

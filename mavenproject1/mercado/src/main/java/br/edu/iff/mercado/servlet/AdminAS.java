@@ -5,6 +5,7 @@
  */
 package br.edu.iff.mercado.servlet;
 
+import br.edu.iff.mercado.controles.ControleAdmin;
 import br.edu.iff.mercado.entidades.Admin;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -41,9 +42,9 @@ public class AdminAS extends HttpServlet {
         usuario.setNrTelefone(NrTelefone);
         usuario.setNrCpf(NrCpf);
         //Chama de funcao para salvar ou atualizar usuario
-        Adminnn.salvar(usuario);
+        ControleAdmin.salvar(usuario);
         
         //Redireciona pagina
-        response.sendRedirect("listar.jsp");
+        response.sendRedirect("listarAdmin.jsp");
     }
 }
