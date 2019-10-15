@@ -1,11 +1,11 @@
-﻿--
+--
 -- PostgreSQL database dump
 --
 
 -- Dumped from database version 9.5.7
 -- Dumped by pg_dump version 9.5.7
 
--- Started on 2019-10-02 12:12:41 BRT
+-- Started on 2019-10-15 11:48:48 BRT
 
 SET statement_timeout = 0;
 SET lock_timeout = 0;
@@ -39,7 +39,7 @@ SET default_tablespace = '';
 SET default_with_oids = false;
 
 --
--- TOC entry 181 (class 1259 OID 33670)
+-- TOC entry 181 (class 1259 OID 42106)
 -- Name: admin; Type: TABLE; Schema: public; Owner: postgres
 --
 
@@ -55,7 +55,7 @@ CREATE TABLE admin (
 ALTER TABLE admin OWNER TO postgres;
 
 --
--- TOC entry 182 (class 1259 OID 33673)
+-- TOC entry 182 (class 1259 OID 42109)
 -- Name: cliente; Type: TABLE; Schema: public; Owner: postgres
 --
 
@@ -74,37 +74,38 @@ CREATE TABLE cliente (
 ALTER TABLE cliente OWNER TO postgres;
 
 --
--- TOC entry 185 (class 1259 OID 33687)
+-- TOC entry 183 (class 1259 OID 42115)
 -- Name: produto; Type: TABLE; Schema: public; Owner: postgres
 --
 
 CREATE TABLE produto (
-    cd_produtos character varying(500) NOT NULL,
     nm_nome character varying(500),
-    vl_unidade integer,
     nm_marca character varying(500),
-    cd_sessao character varying(500),
-    id integer
+    id_sessao integer,
+    id_produto integer NOT NULL,
+    vl_unidade numeric(10,10),
+    vl_promocao numeric(10,10),
+    dt_promocao timestamp with time zone
 );
 
 
 ALTER TABLE produto OWNER TO postgres;
 
 --
--- TOC entry 186 (class 1259 OID 33692)
+-- TOC entry 184 (class 1259 OID 42121)
 -- Name: sessao; Type: TABLE; Schema: public; Owner: postgres
 --
 
 CREATE TABLE sessao (
-    cd_sessao character varying(500) NOT NULL,
-    nm_nome character varying(500)
+    nm_nome character varying(500),
+    id_sessao integer NOT NULL
 );
 
 
 ALTER TABLE sessao OWNER TO postgres;
 
 --
--- TOC entry 183 (class 1259 OID 33679)
+-- TOC entry 185 (class 1259 OID 42127)
 -- Name: sq_admin; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
@@ -119,7 +120,7 @@ CREATE SEQUENCE sq_admin
 ALTER TABLE sq_admin OWNER TO postgres;
 
 --
--- TOC entry 184 (class 1259 OID 33681)
+-- TOC entry 186 (class 1259 OID 42129)
 -- Name: sq_usuario; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
@@ -134,39 +135,48 @@ CREATE SEQUENCE sq_usuario
 ALTER TABLE sq_usuario OWNER TO postgres;
 
 --
--- TOC entry 2160 (class 0 OID 33670)
+-- TOC entry 2160 (class 0 OID 42106)
 -- Dependencies: 181
 -- Data for Name: admin; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
+COPY admin (nm_nome, nr_cpf, ds_senha, nr_telefone, id) FROM stdin;
+\.
 
 
 --
--- TOC entry 2161 (class 0 OID 33673)
+-- TOC entry 2161 (class 0 OID 42109)
 -- Dependencies: 182
 -- Data for Name: cliente; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
+COPY cliente (nr_telefone, nr_cpf, nr_rg, ds_senha, ds_email, endereco, nm_nome, id) FROM stdin;
+\.
 
 
 --
--- TOC entry 2164 (class 0 OID 33687)
--- Dependencies: 185
+-- TOC entry 2162 (class 0 OID 42115)
+-- Dependencies: 183
 -- Data for Name: produto; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
+COPY produto (nm_nome, nm_marca, id_sessao, id_produto, vl_unidade, vl_promocao, dt_promocao) FROM stdin;
+\.
+
 
 --
--- TOC entry 2165 (class 0 OID 33692)
--- Dependencies: 186
+-- TOC entry 2163 (class 0 OID 42121)
+-- Dependencies: 184
 -- Data for Name: sessao; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
+COPY sessao (nm_nome, id_sessao) FROM stdin;
+\.
 
 
 --
 -- TOC entry 2174 (class 0 OID 0)
--- Dependencies: 183
+-- Dependencies: 185
 -- Name: sq_admin; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
@@ -175,7 +185,7 @@ SELECT pg_catalog.setval('sq_admin', 1, true);
 
 --
 -- TOC entry 2175 (class 0 OID 0)
--- Dependencies: 184
+-- Dependencies: 186
 -- Name: sq_usuario; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
@@ -183,7 +193,25 @@ SELECT pg_catalog.setval('sq_usuario', 2, true);
 
 
 --
--- TOC entry 2037 (class 2606 OID 33684)
+-- TOC entry 2042 (class 2606 OID 42148)
+-- Name: id_produto; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY produto
+    ADD CONSTRAINT id_produto PRIMARY KEY (id_produto);
+
+
+--
+-- TOC entry 2044 (class 2606 OID 42146)
+-- Name: id_sessao; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY sessao
+    ADD CONSTRAINT id_sessao PRIMARY KEY (id_sessao);
+
+
+--
+-- TOC entry 2037 (class 2606 OID 42132)
 -- Name: pk_id; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -192,7 +220,7 @@ ALTER TABLE ONLY admin
 
 
 --
--- TOC entry 2039 (class 2606 OID 33686)
+-- TOC entry 2039 (class 2606 OID 42134)
 -- Name: pk_idc; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -201,38 +229,20 @@ ALTER TABLE ONLY cliente
 
 
 --
--- TOC entry 2042 (class 2606 OID 33691)
--- Name: pk_produtos; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- TOC entry 2040 (class 1259 OID 42154)
+-- Name: fki_id_sessao; Type: INDEX; Schema: public; Owner: postgres
+--
+
+CREATE INDEX fki_id_sessao ON produto USING btree (id_sessao);
+
+
+--
+-- TOC entry 2045 (class 2606 OID 42149)
+-- Name: id_sessao; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY produto
-    ADD CONSTRAINT pk_produtos PRIMARY KEY (cd_produtos);
-
-
---
--- TOC entry 2044 (class 2606 OID 33702)
--- Name: pk_sessao; Type: CONSTRAINT; Schema: public; Owner: postgres
---
-
-ALTER TABLE ONLY sessao
-    ADD CONSTRAINT pk_sessao PRIMARY KEY (cd_sessao);
-
-
---
--- TOC entry 2040 (class 1259 OID 33708)
--- Name: fki_cd_produto_cd_sessao; Type: INDEX; Schema: public; Owner: postgres
---
-
-CREATE INDEX fki_cd_produto_cd_sessao ON produto USING btree (cd_sessao);
-
-
---
--- TOC entry 2045 (class 2606 OID 33703)
--- Name: fk_cd_sessao_cd_produto; Type: FK CONSTRAINT; Schema: public; Owner: postgres
---
-
-ALTER TABLE ONLY produto
-    ADD CONSTRAINT fk_cd_sessao_cd_produto FOREIGN KEY (cd_sessao) REFERENCES produto(cd_produtos);
+    ADD CONSTRAINT id_sessao FOREIGN KEY (id_sessao) REFERENCES sessao(id_sessao);
 
 
 --
@@ -247,7 +257,7 @@ GRANT ALL ON SCHEMA public TO postgres;
 GRANT ALL ON SCHEMA public TO PUBLIC;
 
 
--- Completed on 2019-10-02 12:12:41 BRT
+-- Completed on 2019-10-15 11:48:48 BRT
 
 --
 -- PostgreSQL database dump complete
