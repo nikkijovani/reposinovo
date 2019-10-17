@@ -14,26 +14,25 @@
         <title>Crud</title>
     </head>
     <body>
-        
-        <%
-        //Criar variaveis
-        Cliente usuario = new Cliente();
-        String nome = "";
-        String senha = "";
 
-        //Captura id (se alteração)
-        String idUsuario = request.getParameter("pid");
-        
-        //Localiza usuario (se alteração)
-        if(!idUsuario.isEmpty()){
-            usuario = ClienteControle.buscar(Integer.parseInt(idUsuario));
-            nome = usuario.getNmNome();
-            senha = usuario.getDsSenha();            
-        }
-        else{
-            idUsuario = "";
-        }
-        
+        <%
+            //Criar variaveis
+            Cliente usuario = new Cliente();
+            String nome = "";
+            String senha = "";
+
+            //Captura id (se alteração)
+            String idUsuario = request.getParameter("pid");
+
+            //Localiza usuario (se alteração)
+            if (!idUsuario.isEmpty()) {
+                usuario = ClienteControle.buscar(Integer.parseInt(idUsuario));
+                nome = usuario.getNmNome();
+                senha = usuario.getDsSenha();
+            } else {
+                idUsuario = "";
+            }
+
         %>
         <form method="POST" action="ClienteAS">
             <div hidden>

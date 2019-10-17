@@ -13,7 +13,7 @@
         <h1>Informações</h1>
         <%
             List<Cliente> lista = ClienteControle.listar();
-            request.setAttribute( "cliente", lista );
+            request.setAttribute("cliente", lista);
         %>
         <display:table name="cliente">
             <display:column property="id" title="ID" paramProperty="checkbox"/>

@@ -18,29 +18,28 @@
         <br> 
         <h2>Leitura e alteração!</h2>
         <%
-        //Criar variaveis
-        Admin usuario = new Admin();
-        String nome = "";
-        String senha = "";
-        String telefone = "";
-        String cpf = "";
+            //Criar variaveis
+            Admin usuario = new Admin();
+            String nome = "";
+            String senha = "";
+            String telefone = "";
+            String cpf = "";
 
-        //Captura id (se alteração)
-        String idUsuario = request.getParameter("id");
-        
-        //Localiza usuario (se alteração)
-        if(!idUsuario.isEmpty()){
-            usuario = ControleAdmin.buscar(Integer.parseInt(idUsuario));
-            nome = usuario.getNmNome();
-            senha = usuario.getDsSenha();
-            telefone = usuario.getNrTelefone();
-            cpf = usuario.getNrCpf();
-            
-        }
-        else{
-            idUsuario = "";
-        }
-        
+            //Captura id (se alteração)
+            String idUsuario = request.getParameter("id");
+
+            //Localiza usuario (se alteração)
+            if (!idUsuario.isEmpty()) {
+                usuario = ControleAdmin.buscar(Integer.parseInt(idUsuario));
+                nome = usuario.getNmNome();
+                senha = usuario.getDsSenha();
+                telefone = usuario.getNrTelefone();
+                cpf = usuario.getNrCpf();
+
+            } else {
+                idUsuario = "";
+            }
+
         %>
         <form method="POST" action="AdminAS">
             <div hidden>

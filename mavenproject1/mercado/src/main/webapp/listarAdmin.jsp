@@ -16,7 +16,7 @@
         <h2>Lista dos usuários admin's</h2>
         <%
             List<Admin> lista = ControleAdmin.listar();
-            request.setAttribute( "usuarios", lista );
+            request.setAttribute("usuarios", lista);
         %>
         <display:table name="usuarios">
             <display:column property="id" title="ID" paramProperty="checkbox"/>

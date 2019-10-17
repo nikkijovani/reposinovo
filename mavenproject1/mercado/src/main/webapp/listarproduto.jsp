@@ -15,7 +15,7 @@
         <h1>Lista dos produtos</h1>
         <%
             List<Produto> lista = Produtos.listar();
-            request.setAttribute( "produtos", lista );
+            request.setAttribute("produtos", lista);
         %>
         <display:table name="Produto">
             <display:column property="id" title="ID" paramProperty="checkbox"/>

@@ -16,20 +16,21 @@
             Produto produto = new Produto();
             String nome = "";
             String marca = "";
-            
+
             //Capturar id(se alteração)
             String idProduto = request.getParameter("pid");
-            
+
             //Localizar Produto
-            if(!idProduto.isEmpty()){
-                produto = Produto.class(Integer.parseInt(idProduto));
+            if (!idProduto.isEmpty()) {
+                produto = Produto.class
+                (Integer.parseInt(idProduto)
+                );
                 nome = produto.getNmNome();
                 marca = produto.getNmMarca();
-            }
-            else{
+            } else {
                 idProduto = "";
             }
-            
+
         %>
         <form method="POST" action="CadastrarProdutos.java"
               <div hidden>
