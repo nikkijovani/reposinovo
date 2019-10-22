@@ -91,7 +91,7 @@ public class CadastrarProdutos extends HttpServlet {
         
         //Cria instancia do produto com id informado
         Produto produto = new Produto();
-        produto.setId(Integer.parseInt(idtext));
+        produto.setIdProduto(Integer.parseInt(idtext));
         
         //Chama de funcao para apagar produto
         ControleProduto.deletar(produto);

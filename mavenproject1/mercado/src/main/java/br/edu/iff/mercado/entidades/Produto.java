@@ -6,16 +6,20 @@
 package br.edu.iff.mercado.entidades;
 
 import java.io.Serializable;
+import java.math.BigInteger;
+import java.util.Date;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.Lob;
+import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
-import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
@@ -29,57 +33,53 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlRootElement
 @NamedQueries({
     @NamedQuery(name = "Produto.findAll", query = "SELECT p FROM Produto p")
-    , @NamedQuery(name = "Produto.findByCdProdutos", query = "SELECT p FROM Produto p WHERE p.cdProdutos = :cdProdutos")
     , @NamedQuery(name = "Produto.findByNmNome", query = "SELECT p FROM Produto p WHERE p.nmNome = :nmNome")
-    , @NamedQuery(name = "Produto.findByVlUnidade", query = "SELECT p FROM Produto p WHERE p.vlUnidade = :vlUnidade")
     , @NamedQuery(name = "Produto.findByNmMarca", query = "SELECT p FROM Produto p WHERE p.nmMarca = :nmMarca")
-    , @NamedQuery(name = "Produto.findByCdSessao", query = "SELECT p FROM Produto p WHERE p.cdSessao = :cdSessao")
-    , @NamedQuery(name = "Produto.findById", query = "SELECT p FROM Produto p WHERE p.id = :id")})
+    , @NamedQuery(name = "Produto.findByIdProduto", query = "SELECT p FROM Produto p WHERE p.idProduto = :idProduto")
+    , @NamedQuery(name = "Produto.findByDtPromocao", query = "SELECT p FROM Produto p WHERE p.dtPromocao = :dtPromocao")
+    , @NamedQuery(name = "Produto.findByVlUnidade", query = "SELECT p FROM Produto p WHERE p.vlUnidade = :vlUnidade")
+    , @NamedQuery(name = "Produto.findByVlPromocao", query = "SELECT p FROM Produto p WHERE p.vlPromocao = :vlPromocao")
+    , @NamedQuery(name = "Produto.findByDsDescricao", query = "SELECT p FROM Produto p WHERE p.dsDescricao = :dsDescricao")
+    , @NamedQuery(name = "Produto.findByExtensao", query = "SELECT p FROM Produto p WHERE p.extensao = :extensao")})
 public class Produto implements Serializable {
 
     private static final long serialVersionUID = 1L;
-    @Basic(optional = false)
-    @NotNull
-    @Size(min = 1, max = 500)
-    @Column(name = "cd_produtos")
-    private String cdProdutos;
     @Size(max = 500)
     @Column(name = "nm_nome")
     private String nmNome;
-    @Column(name = "vl_unidade")
-    private Integer vlUnidade;
     @Size(max = 500)
     @Column(name = "nm_marca")
     private String nmMarca;
-    @Size(max = 500)
-    @Column(name = "cd_sessao")
-    private String cdSessao;
     @Id
     @Basic(optional = false)
     @NotNull
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "minhageradora")
-    @SequenceGenerator(name = "minhageradora", sequenceName = "sq_produto")
-    @Column(name = "id")
-    private Integer id;
+    @Column(name = "id_produto")
+    private Integer idProduto;
+    @Column(name = "dt_promocao")
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date dtPromocao;
+    @Column(name = "vl_unidade")
+    private BigInteger vlUnidade;
+    @Column(name = "vl_promocao")
+    private BigInteger vlPromocao;
+    @Size(max = 100)
+    @Column(name = "ds_descricao")
+    private String dsDescricao;
+    @Lob
+    @Column(name = "ft_produto")
+    private byte[] ftProduto;
+    @Size(max = 2147483647)
+    @Column(name = "extensao")
+    private String extensao;
+    @JoinColumn(name = "id_sessao", referencedColumnName = "id_sessao")
+    @ManyToOne
+    private Sessao idSessao;
 
     public Produto() {
     }
 
-    public Produto(Integer id) {
-        this.id = id;
-    }
-
-    public Produto(Integer id, String cdProdutos) {
-        this.id = id;
-        this.cdProdutos = cdProdutos;
-    }
-
-    public String getCdProdutos() {
-        return cdProdutos;
-    }
-
-    public void setCdProdutos(String cdProdutos) {
-        this.cdProdutos = cdProdutos;
+    public Produto(Integer idProduto) {
+        this.idProduto = idProduto;
     }
 
     public String getNmNome() {
@@ -90,14 +90,6 @@ public class Produto implements Serializable {
         this.nmNome = nmNome;
     }
 
-    public Integer getVlUnidade() {
-        return vlUnidade;
-    }
-
-    public void setVlUnidade(Integer vlUnidade) {
-        this.vlUnidade = vlUnidade;
-    }
-
     public String getNmMarca() {
         return nmMarca;
     }
@@ -106,26 +98,74 @@ public class Produto implements Serializable {
         this.nmMarca = nmMarca;
     }
 
-    public String getCdSessao() {
-        return cdSessao;
+    public Integer getIdProduto() {
+        return idProduto;
     }
 
-    public void setCdSessao(String cdSessao) {
-        this.cdSessao = cdSessao;
+    public void setIdProduto(Integer idProduto) {
+        this.idProduto = idProduto;
     }
 
-    public Integer getId() {
-        return id;
+    public Date getDtPromocao() {
+        return dtPromocao;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
+    public void setDtPromocao(Date dtPromocao) {
+        this.dtPromocao = dtPromocao;
+    }
+
+    public BigInteger getVlUnidade() {
+        return vlUnidade;
+    }
+
+    public void setVlUnidade(BigInteger vlUnidade) {
+        this.vlUnidade = vlUnidade;
+    }
+
+    public BigInteger getVlPromocao() {
+        return vlPromocao;
+    }
+
+    public void setVlPromocao(BigInteger vlPromocao) {
+        this.vlPromocao = vlPromocao;
+    }
+
+    public String getDsDescricao() {
+        return dsDescricao;
+    }
+
+    public void setDsDescricao(String dsDescricao) {
+        this.dsDescricao = dsDescricao;
+    }
+
+    public byte[] getFtProduto() {
+        return ftProduto;
+    }
+
+    public void setFtProduto(byte[] ftProduto) {
+        this.ftProduto = ftProduto;
+    }
+
+    public String getExtensao() {
+        return extensao;
+    }
+
+    public void setExtensao(String extensao) {
+        this.extensao = extensao;
+    }
+
+    public Sessao getIdSessao() {
+        return idSessao;
+    }
+
+    public void setIdSessao(Sessao idSessao) {
+        this.idSessao = idSessao;
     }
 
     @Override
     public int hashCode() {
         int hash = 0;
-        hash += (id != null ? id.hashCode() : 0);
+        hash += (idProduto != null ? idProduto.hashCode() : 0);
         return hash;
     }
 
@@ -136,7 +176,7 @@ public class Produto implements Serializable {
             return false;
         }
         Produto other = (Produto) object;
-        if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
+        if ((this.idProduto == null && other.idProduto != null) || (this.idProduto != null && !this.idProduto.equals(other.idProduto))) {
             return false;
         }
         return true;
@@ -144,7 +184,7 @@ public class Produto implements Serializable {
 
     @Override
     public String toString() {
-        return "br.edu.iff.mercado.entidades.Produto[ id=" + id + " ]";
+        return "br.edu.iff.mercado.entidades.Produto[ idProduto=" + idProduto + " ]";
     }
     
 }

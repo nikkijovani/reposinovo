@@ -26,34 +26,25 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlRootElement
 @NamedQueries({
     @NamedQuery(name = "Sessao.findAll", query = "SELECT s FROM Sessao s")
-    , @NamedQuery(name = "Sessao.findByCdSessao", query = "SELECT s FROM Sessao s WHERE s.cdSessao = :cdSessao")
-    , @NamedQuery(name = "Sessao.findByNmNome", query = "SELECT s FROM Sessao s WHERE s.nmNome = :nmNome")})
+    , @NamedQuery(name = "Sessao.findByNmNome", query = "SELECT s FROM Sessao s WHERE s.nmNome = :nmNome")
+    , @NamedQuery(name = "Sessao.findByIdSessao", query = "SELECT s FROM Sessao s WHERE s.idSessao = :idSessao")})
 public class Sessao implements Serializable {
 
     private static final long serialVersionUID = 1L;
-    @Id
-    @Basic(optional = false)
-    @NotNull
-    @Size(min = 1, max = 500)
-    @Column(name = "cd_sessao")
-    private String cdSessao;
     @Size(max = 500)
     @Column(name = "nm_nome")
     private String nmNome;
+    @Id
+    @Basic(optional = false)
+    @NotNull
+    @Column(name = "id_sessao")
+    private Integer idSessao;
 
     public Sessao() {
     }
 
-    public Sessao(String cdSessao) {
-        this.cdSessao = cdSessao;
-    }
-
-    public String getCdSessao() {
-        return cdSessao;
-    }
-
-    public void setCdSessao(String cdSessao) {
-        this.cdSessao = cdSessao;
+    public Sessao(Integer idSessao) {
+        this.idSessao = idSessao;
     }
 
     public String getNmNome() {
@@ -64,10 +55,18 @@ public class Sessao implements Serializable {
         this.nmNome = nmNome;
     }
 
+    public Integer getIdSessao() {
+        return idSessao;
+    }
+
+    public void setIdSessao(Integer idSessao) {
+        this.idSessao = idSessao;
+    }
+
     @Override
     public int hashCode() {
         int hash = 0;
-        hash += (cdSessao != null ? cdSessao.hashCode() : 0);
+        hash += (idSessao != null ? idSessao.hashCode() : 0);
         return hash;
     }
 
@@ -78,7 +77,7 @@ public class Sessao implements Serializable {
             return false;
         }
         Sessao other = (Sessao) object;
-        if ((this.cdSessao == null && other.cdSessao != null) || (this.cdSessao != null && !this.cdSessao.equals(other.cdSessao))) {
+        if ((this.idSessao == null && other.idSessao != null) || (this.idSessao != null && !this.idSessao.equals(other.idSessao))) {
             return false;
         }
         return true;
@@ -86,7 +85,7 @@ public class Sessao implements Serializable {
 
     @Override
     public String toString() {
-        return "br.edu.iff.mercado.entidades.Sessao[ cdSessao=" + cdSessao + " ]";
+        return "br.edu.iff.mercado.entidades.Sessao[ idSessao=" + idSessao + " ]";
     }
     
 }
