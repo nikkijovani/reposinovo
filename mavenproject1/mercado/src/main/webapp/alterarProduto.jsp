@@ -1,3 +1,4 @@
+<%@page import="br.edu.iff.mercado.classes.ControleProduto"%>
 <%@page import="br.edu.iff.mercado.entidades.Produto"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <jsp:directive.page import="br.edu.iff.mercado.entidades.Produto.java"/>
@@ -22,9 +23,7 @@
 
             //Localizar Produto
             if (!idProduto.isEmpty()) {
-                produto = Produto.class
-                (Integer.parseInt(idProduto)
-                );
+                produto = ControleProduto.buscar(Integer.parseInt(idProduto));
                 nome = produto.getNmNome();
                 marca = produto.getNmMarca();
             } else {

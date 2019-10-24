@@ -62,12 +62,12 @@ public class CadastrarProdutos extends HttpServlet {
           //Captura id da tela
         String idtext = request.getParameter("pid");
         
-        //Cria instancia do usuario com id informado
-        ControleProduto usuario = new ControleProduto();
-        usuario.setId(Integer.parseInt(idtext));
+        //Cria instancia do produto com id informado
+        ControleProduto produto = new ControleProduto();
+        produto.setId(Integer.parseInt(idtext));
         
-        //Chama de funcao para apagar usuario
-        ControleProduto.deletar(usuario);
+        //Chama de funcao para apagar produto
+        ControleProduto.deletar(produto);
         
         //Redireciona pagina
         response.sendRedirect("index.html");

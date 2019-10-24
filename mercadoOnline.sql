@@ -1,4 +1,4 @@
---
+﻿--
 -- PostgreSQL database dump
 --
 
@@ -158,9 +158,6 @@ ALTER TABLE sq_usuario OWNER TO postgres;
 -- Data for Name: admin; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-COPY admin (nm_nome, nr_cpf, ds_senha, nr_telefone, id) FROM stdin;
-Joana	11122233344	123456789	998741520	152
-\.
 
 
 --
@@ -169,8 +166,7 @@ Joana	11122233344	123456789	998741520	152
 -- Data for Name: cliente; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-COPY cliente (nr_telefone, nr_cpf, nr_rg, ds_senha, ds_email, endereco, nm_nome, id) FROM stdin;
-\.
+
 
 
 --
@@ -179,12 +175,6 @@ COPY cliente (nr_telefone, nr_cpf, nr_rg, ds_senha, ds_email, endereco, nm_nome,
 -- Data for Name: produto; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-COPY produto (nm_nome, nm_marca, id_sessao, id_produto, dt_promocao, vl_unidade, vl_promocao, ds_descricao, ft_produto, extensao) FROM stdin;
-Leite desnatado	Parmalat	10	3	2019-04-12 00:00:00-03	4.90	5.90	Leite Parmalat 1L	\N	\N
-Mortadela defumada 	Sadia	10	4	2019-04-12 00:00:00-03	3.90	2.90	Mortadela defumada Kg	\N	\N
-Queijo Branco	Minas	10	2	2019-04-12 00:00:00-03	6.90	4.90	Queijo Minas artesanal	\N	\N
-Iorgute	Vigor	10	1	2019-04-12 00:00:00-03	12.90	9.90	Iorgute de morango 1L	\N	image/jpeg
-\.
 
 
 --
@@ -193,14 +183,7 @@ Iorgute	Vigor	10	1	2019-04-12 00:00:00-03	12.90	9.90	Iorgute de morango 1L	\N	im
 -- Data for Name: sessao; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-COPY sessao (nm_nome, id_sessao) FROM stdin;
-Bebidas	20
-Frutas	30
-Higiene	40
-Verduras	50
-enlatados	60
-frioselaticínios	10
-\.
+
 
 
 --

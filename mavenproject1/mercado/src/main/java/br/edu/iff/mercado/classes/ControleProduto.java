@@ -1,9 +1,11 @@
+package br.edu.iff.mercado.classes;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package br.edu.iff.mercado.classes;
+
 
 import br.edu.iff.mercado.entidades.Produto;
 import br.edu.iff.mercado.util.HibernateUtil;
@@ -32,15 +34,14 @@ public class ControleProduto {
     }
     
     //Localiza um produto pelo id
-    public static ControleProduto buscar(Integer id)
+    public static Produto buscar(Integer id)
     {
-        String idUsuario = id.toString();
+        String idProduto = id.toString();
         Session sessionRecheio;
         sessionRecheio = HibernateUtil.getSession();
         Transaction tr = sessionRecheio.beginTransaction();
-        String idProduto = null;
         String hql = "from Produto u where u.id='"+idProduto+"'";
-        ControleProduto produto = (ControleProduto)sessionRecheio.createQuery(hql).uniqueResult();
+        Produto produto = (Produto)sessionRecheio.createQuery(hql).uniqueResult();
         tr.commit();
         return produto;
     }
@@ -57,7 +58,7 @@ public class ControleProduto {
         return lista;
     }
     
-    //Função de apagar um usuario
+    //Função de apagar um produto
     public static boolean deletar(ControleProduto produto){
         try{
             Session sessionRecheio;

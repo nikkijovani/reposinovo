@@ -5,8 +5,10 @@
  */
 package br.edu.iff.mercado.util;
 
+import br.edu.iff.mercado.classes.ControleProduto;
 import br.edu.iff.mercado.entidades.Admin;
 import br.edu.iff.mercado.entidades.Cliente;
+import br.edu.iff.mercado.entidades.Sessao;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.AnnotationConfiguration;
@@ -36,6 +38,8 @@ public class HibernateUtil {
         cfg.configure();
         cfg.addAnnotatedClass(Cliente.class);
         cfg.addAnnotatedClass(Admin.class);
+        cfg.addAnnotatedClass(ControleProduto.class);
+        cfg.addAnnotatedClass(Sessao.class);
         factory = cfg.buildSessionFactory();
     }
 
