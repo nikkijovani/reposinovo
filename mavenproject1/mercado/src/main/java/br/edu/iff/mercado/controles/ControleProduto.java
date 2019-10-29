@@ -5,7 +5,7 @@
  */
 package br.edu.iff.mercado.controles;
 
-import br.edu.iff.mercado.entidades.Produto;
+import br.edu.iff.mercado.entidades.Produtos;
 import br.edu.iff.mercado.util.HibernateUtil;
 import java.util.List;
 import org.hibernate.Session;
@@ -18,7 +18,7 @@ import org.hibernate.Transaction;
 public class ControleProduto{
     
     //Função de salvar/atualizar um produto
-    public static boolean salvar(Produto produto){
+    public static boolean salvar(Produtos produto){
         try{
             Session sessionRecheio;
             sessionRecheio = HibernateUtil.getSession();
@@ -33,32 +33,32 @@ public class ControleProduto{
     }
     
     //Localiza um usuario pelo id
-    public static Produto buscar(Integer id)
+    public static Produtos buscar(Integer id)
     {
         String idProduto = id.toString();
         Session sessionRecheio;
         sessionRecheio = HibernateUtil.getSession();
         Transaction tr = sessionRecheio.beginTransaction();
         String hql = "from Produto u where u.id='"+idProduto+"'";
-        Produto produto = (Produto)sessionRecheio.createQuery(hql).uniqueResult();
+        Produtos produto = (Produtos)sessionRecheio.createQuery(hql).uniqueResult();
         tr.commit();
         return produto;
     }
     
     //Retorna todos os usuario do sistema
-    public static List<Produto> listar()
+    public static List<Produtos> listar()
     {
         Session sessionRecheio;
         sessionRecheio = HibernateUtil.getSession();
         Transaction tr = sessionRecheio.beginTransaction();
-        String hql = "from Produto u";
-        List<Produto> lista = (List)sessionRecheio.createQuery(hql).list();
+        String hql = "from Produtos";
+        List<Produtos> lista = (List)sessionRecheio.createQuery(hql).list();
         tr.commit();
         return lista;
     }
     
     //Função de apagar um usuario
-    public static boolean deletar(Produto produto){
+    public static boolean deletar(Produtos produto){
         try{
             Session sessionRecheio;
             sessionRecheio = HibernateUtil.getSession();

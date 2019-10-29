@@ -6,7 +6,7 @@
 package br.edu.iff.mercado.servlet;
 
 import br.edu.iff.mercado.controles.ControleProduto;
-import br.edu.iff.mercado.entidades.Produto;
+import br.edu.iff.mercado.entidades.Produtos;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -64,10 +64,10 @@ public class CadastrarProdutos extends HttpServlet {
         
         //Cria instancia do produto com id informado
         ControleProduto produto = new ControleProduto();
-        produto.setId(Integer.parseInt(idtext));
+       // produto.setId(Integer.parseInt(idtext));
         
         //Chama de funcao para apagar produto
-        ControleProduto.deletar(produto);
+        //ControleProduto.deletar(produto);
         
         //Redireciona pagina
         response.sendRedirect("index.html");
@@ -90,9 +90,7 @@ public class CadastrarProdutos extends HttpServlet {
         String idtext = request.getParameter("pid");
         
         //Cria instancia do produto com id informado
-        Produto produto = new Produto();
-        produto.setIdProduto(Integer.parseInt(idtext));
-        
+        Produtos produto = new Produtos();        
         //Chama de funcao para apagar produto
         ControleProduto.deletar(produto);
         
