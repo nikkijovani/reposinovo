@@ -1,11 +1,9 @@
-package br.edu.iff.mercado.classes;
-
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
+package br.edu.iff.mercado.controles;
 
 import br.edu.iff.mercado.entidades.Produto;
 import br.edu.iff.mercado.util.HibernateUtil;
@@ -17,9 +15,10 @@ import org.hibernate.Transaction;
  *
  * @author aluno
  */
-public class ControleProduto {
+public class ControleProduto{
+    
     //Função de salvar/atualizar um produto
-    public static boolean salvar(ControleProduto produto){
+    public static boolean salvar(Produto produto){
         try{
             Session sessionRecheio;
             sessionRecheio = HibernateUtil.getSession();
@@ -33,7 +32,7 @@ public class ControleProduto {
         }        
     }
     
-    //Localiza um produto pelo id
+    //Localiza um usuario pelo id
     public static Produto buscar(Integer id)
     {
         String idProduto = id.toString();
@@ -46,7 +45,7 @@ public class ControleProduto {
         return produto;
     }
     
-    //Retorna todos os produto do sistema
+    //Retorna todos os usuario do sistema
     public static List<Produto> listar()
     {
         Session sessionRecheio;
@@ -58,8 +57,8 @@ public class ControleProduto {
         return lista;
     }
     
-    //Função de apagar um produto
-    public static boolean deletar(ControleProduto produto){
+    //Função de apagar um usuario
+    public static boolean deletar(Produto produto){
         try{
             Session sessionRecheio;
             sessionRecheio = HibernateUtil.getSession();
@@ -72,15 +71,7 @@ public class ControleProduto {
             return false;
         }        
     }    
-
-    public static void deletar(Produto produto) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    public void setId(int parseInt) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
 }
-    
-    
+
+
 

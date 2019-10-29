@@ -5,7 +5,7 @@
  */
 package br.edu.iff.mercado.util;
 
-import br.edu.iff.mercado.classes.ControleProduto;
+import br.edu.iff.mercado.controles.ControleProduto;
 import br.edu.iff.mercado.entidades.Admin;
 import br.edu.iff.mercado.entidades.Cliente;
 import br.edu.iff.mercado.entidades.Sessao;

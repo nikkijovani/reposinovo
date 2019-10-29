@@ -7,8 +7,10 @@
     <nav class="menu">
         <ul>
             <li><a href="indexadm.jsp">Página Inicial</a></li>
-            <li><a	href="listarAdmin.jsp">Listar Admin's</a></li>
+            <li><a href="listarAdmin.jsp">Listar Admin's</a></li>
             <li><a href="alterarAdmin.jsp?id=" >Criar um novo Admin</a></li>
+            <li><a href="listagemProdutos.jsp">Produtos</a></li>
+            <li><a href="alterarProduto.jsp?id=" >Criar um novo Admin</a></li>
         </ul>
     </nav>
 

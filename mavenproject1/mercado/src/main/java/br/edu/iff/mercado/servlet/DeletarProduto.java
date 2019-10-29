@@ -5,8 +5,6 @@
  */
 package br.edu.iff.mercado.servlet;
 
-import br.edu.iff.mercado.controles.ControleProduto;
-import br.edu.iff.mercado.entidades.Produto;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -18,7 +16,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author aluno
  */
-public class CadastrarProdutos extends HttpServlet {
+public class DeletarProduto extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -37,10 +35,10 @@ public class CadastrarProdutos extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet CadastrarProdutos</title>");            
+            out.println("<title>Servlet DeletarProduto</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet CadastrarProdutos at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Servlet DeletarProduto at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
@@ -58,20 +56,6 @@ public class CadastrarProdutos extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
-          //Captura id da tela
-        String idtext = request.getParameter("pid");
-        
-        //Cria instancia do produto com id informado
-        ControleProduto produto = new ControleProduto();
-        produto.setId(Integer.parseInt(idtext));
-        
-        //Chama de funcao para apagar produto
-        ControleProduto.deletar(produto);
-        
-        //Redireciona pagina
-        response.sendRedirect("index.html");
-        
         processRequest(request, response);
     }
 
@@ -86,19 +70,6 @@ public class CadastrarProdutos extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-         //Captura id da tela
-        String idtext = request.getParameter("pid");
-        
-        //Cria instancia do produto com id informado
-        Produto produto = new Produto();
-        produto.setIdProduto(Integer.parseInt(idtext));
-        
-        //Chama de funcao para apagar produto
-        ControleProduto.deletar(produto);
-        
-        //Redireciona pagina
-        response.sendRedirect("index.html");
-        
         processRequest(request, response);
     }
 

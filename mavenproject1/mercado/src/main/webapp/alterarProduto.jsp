@@ -31,7 +31,7 @@
             }
 
         %>
-        <form method="POST" action="CadastrarProdutos.java"
+        <form method="POST" action="CadastrarProdutos.java">
               <div hidden>
                 ID<input type="text" name="pid" value="<%=idProduto%>"/>
             </div>
