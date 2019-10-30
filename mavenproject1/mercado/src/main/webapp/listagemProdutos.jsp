@@ -26,10 +26,10 @@
             <display:column property="nmMarca" title="Marca"/>
             <display:column property="vlUnidade" title="Preço a unidade"/>
             <display:column property="vlPromocao" title="Valor promocional"/>
-            <display:column property="dtPormocao" title="Fim da Promoção"/>
+            <display:column property="dtPromocao" title="Fim da Promoção"/>
             <display:column property="nmMarca" title="Marca"/>
-            <display:column value="alterar" title="" href="alteracaoProduto.jsp" paramId="id" paramProperty="id" />             
-            <display:column value="deletar" title="" autolink="true"  paramId="id" paramProperty="id" href="${pageContext.request.contextPath}/DeletarProduto"/>
+            <display:column value="alterar" title="" href="alteracaoProduto.jsp" paramId="idProduto" paramProperty="idProduto" />             
+            <display:column value="deletar" title="" autolink="true"  paramId="idProduto" paramProperty="idProduto" href="${pageContext.request.contextPath}/DeletarProduto"/>
             <display:setProperty name="basic.msg.empty_list" value="Nenhum produto cadastrado." />
         </display:table>
         <br>

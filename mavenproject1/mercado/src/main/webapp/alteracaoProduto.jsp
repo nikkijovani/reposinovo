@@ -1,3 +1,4 @@
+<%@page import="java.math.BigDecimal"%>
 <%@page import="br.edu.iff.mercado.entidades.Produto"%>
 <%@page import="br.edu.iff.mercado.controles.ControleProduto"%>
 <%@page import="org.hibernate.Session"%>
@@ -16,45 +17,30 @@
     <body>
         <%@ include file="cabecalhoadm.jspf" %>
         <br> 
-        <h2>Leitura e alteração!</h2>
+        <h2>Editar Produto</h2>
         <%
-            //Criar variaveis
-            Produto produto = new Produto();
-            String nome = "";
-            String marca = "";
-            String descricao = "";
-            Date promocao = "";
-            BigDecimal unidade = "";
-            BigDecimal promocao = "";
-
-            //Captura id (se alteração)
-            String idProduto = request.getParameter("id");
-
-            //Localiza usuario (se alteração)
-            if (!idProduto.isEmpty()) {
-                produto = ControleProduto.buscar(Integer.parseInt(idProduto));
-                nome = produto.getNmNome();
-                descricao = produto.getDsDescricao();
-                marca = produto.getNmMarca();
-                unidade = produto.getVlUnidade();
-                promocao = produto.getDtPromocao();
-                
-
-            } else {
-                idProduto = "";
-            }
-
+            String idProduto = request.getParameter("idProduto");
+            Produto produto = ControleProduto.buscar(Integer.parseInt(idProduto));
+            if (produto == null) {
         %>
-        <form method="POST" action="AdminAS">
+        <h3>Produto não encontrado!</h3>
+
+        <% } else {
+                session.setAttribute("produtoEditado", produto);
+        %>
+
+        <form method="POST" action="ASProduto">
             <div hidden>
-                ID<input type="text" name="id" value="<%=idProduto%>">
+                ID Produto<input type="text" name="idProduto" value="<%=idProduto%>">
             </div>
-            Nome<input type="text" name="nome" value="<%=nome%>">
-            Descricao<input type="text" name="telefone" value="<%=descricao%>">
-            Marca<input type="text" name="marca" value="<%=marca%>">
-            Valor unidade<input type="text" name="vlunidade" value="<%=unidade%>">
-            Valor promocional<input type="text" name="vlpromocional" value="<%=promocao%>">
+            Nome<input type="text" name="nome" value="<%=produto.getNmNome()%>">
+            Descricao<input type="text" name="descricao" value="<%=produto.getDsDescricao()%>">
+            Marca<input type="text" name="marca" value="<%=produto.getNmMarca()%>">
+            Valor unidade<input type="text" name="vlunidade" value="<%=produto.getVlUnidade()%>">
+            Valor promocional<input type="text" name="vlpromocao" value="<%=produto.getVlPromocao()%>">
+            Fim da Promoção<input type="text" name="dtpromocao" value="<%=produto.getDtPromocao()%>">
             <input type="submit">
         </form>
+        <% }%>
     </body>
 </html>

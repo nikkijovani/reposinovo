@@ -24,7 +24,7 @@
                     <li><a href="listarAdmin.jsp">Listar Admin's</a></li>
                     <li><a href="alterarAdmin.jsp?id=" >Criar um novo Admin</a></li>
                     <li><a href="listagemProdutos.jsp">Produtos</a></li>
-                    <li><a href="alterarProduto.jsp?id=" >Atualizar produtos</a></li>
+                    <li><a href="alteracaoProduto.jsp?id=" >Atualizar produtos</a></li>
                 </ul>
             </nav>
 

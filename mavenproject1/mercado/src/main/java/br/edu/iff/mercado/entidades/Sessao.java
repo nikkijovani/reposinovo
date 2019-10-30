@@ -6,16 +6,19 @@
 package br.edu.iff.mercado.entidades;
 
 import java.io.Serializable;
+import java.util.Collection;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
@@ -29,6 +32,9 @@ import javax.xml.bind.annotation.XmlRootElement;
     , @NamedQuery(name = "Sessao.findByNmNome", query = "SELECT s FROM Sessao s WHERE s.nmNome = :nmNome")
     , @NamedQuery(name = "Sessao.findByIdSessao", query = "SELECT s FROM Sessao s WHERE s.idSessao = :idSessao")})
 public class Sessao implements Serializable {
+
+    @OneToMany(mappedBy = "idSessao")
+    private Collection<Produto> produtoCollection;
 
     private static final long serialVersionUID = 1L;
     @Size(max = 500)
@@ -86,6 +92,15 @@ public class Sessao implements Serializable {
     @Override
     public String toString() {
         return "br.edu.iff.mercado.entidades.Sessao[ idSessao=" + idSessao + " ]";
+    }
+
+    @XmlTransient
+    public Collection<Produto> getProdutoCollection() {
+        return produtoCollection;
+    }
+
+    public void setProdutoCollection(Collection<Produto> produtoCollection) {
+        this.produtoCollection = produtoCollection;
     }
     
 }
