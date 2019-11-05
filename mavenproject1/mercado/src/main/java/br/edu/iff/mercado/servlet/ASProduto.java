@@ -5,6 +5,7 @@
  */
 package br.edu.iff.mercado.servlet;
 
+import br.edu.iff.mercado.controles.ControleProduto;
 import java.io.IOException;
 import java.math.BigDecimal;
 import java.text.ParseException;
@@ -25,7 +26,7 @@ public class ASProduto extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         //Captura parametros da tela
-        String idProduto = request.getParameter("idProduto");
+        String IdProduto = request.getParameter("idProduto");
         String NmNome = request.getParameter("nome");
         String NmMarca = request.getParameter("marca");
         String DsDescricao = request.getParameter("descricao");
@@ -42,6 +43,10 @@ public class ASProduto extends HttpServlet {
         } catch (ParseException ex) {
             System.out.println("ERRO DE CONVERSAO DE DATA! Data digitada: " + data);
         }
+
+
+        //Chama de funcao para salvar ou atualizar usuario
+        ControleProduto.atualizar(IdProduto, NmNome, NmMarca, DsDescricao, VlUnidade, DtPromocao, VlPromocao);
 
         //Redireciona pagina
         response.sendRedirect("listagemProdutos.jsp");

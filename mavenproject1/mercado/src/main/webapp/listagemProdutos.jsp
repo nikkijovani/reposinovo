@@ -19,17 +19,14 @@
             request.setAttribute("produtos", lista);
         %>
         <display:table name="produtos">
-            <display:column property="ftProduto" title=""/>
-            <display:column property="idSessao" title="ID" paramProperty="checkbox"/>
-            <display:column property="idProduto" title="ID" paramProperty="checkbox"/>
             <display:column property="nmNome" title="Nome"/>
             <display:column property="nmMarca" title="Marca"/>
-            <display:column property="vlUnidade" title="Preço a unidade"/>
+            <display:column property="vlUnidade" title="Preço/unidade"/>
             <display:column property="vlPromocao" title="Valor promocional"/>
             <display:column property="dtPromocao" title="Fim da Promoção"/>
             <display:column property="nmMarca" title="Marca"/>
-            <display:column value="alterar" title="" href="alteracaoProduto.jsp" paramId="idProduto" paramProperty="idProduto" />             
-            <display:column value="deletar" title="" autolink="true"  paramId="idProduto" paramProperty="idProduto" href="${pageContext.request.contextPath}/DeletarProduto"/>
+            <display:column value="alterar" title="Alterar" href="alteracaoProduto.jsp" paramId="idProduto" paramProperty="idProduto" />             
+            <display:column value="deletar" title="Deletar" autolink="true"  paramId="idProduto" paramProperty="idProduto" href="${pageContext.request.contextPath}/DeletarProduto"/>
             <display:setProperty name="basic.msg.empty_list" value="Nenhum produto cadastrado." />
         </display:table>
         <br>
