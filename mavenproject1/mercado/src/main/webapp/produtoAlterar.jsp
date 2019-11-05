@@ -29,15 +29,13 @@
             }
 
         %>
-<<<<<<< HEAD:mavenproject1/mercado/src/main/webapp/produtoAlterar.jsp
         <form method="POST" action="CadastrarProdutoSA.java"
              <input type="hidden" name="pid" value="<%=idProduto%>"/>
-=======
+
         <form method="POST" action="CadastrarProdutos.java">
               <div hidden>
                 ID<input type="text" name="pid" value="<%=idProduto%>"/>
             </div>
->>>>>>> 8f5ade626ccc5ce4825e8fb6faa779cc38c066ab:mavenproject1/mercado/src/main/webapp/alterarProduto.jsp
             Nome<input type="text" name="nome" value="<%=nome%>"/>
             Marca<input type="text" name="marca" value="<%=marca%>"/>
             <input type="submit"/>

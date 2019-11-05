@@ -5,16 +5,11 @@
  */
 package br.edu.iff.mercado.servlet;
 
-import br.edu.iff.mercado.controles.ControleProduto;
-import br.edu.iff.mercado.entidades.Produto;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.math.BigDecimal;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -47,9 +42,6 @@ public class ASProduto extends HttpServlet {
         } catch (ParseException ex) {
             System.out.println("ERRO DE CONVERSAO DE DATA! Data digitada: " + data);
         }
-
-        //Chama de funcao para salvar ou atualizar usuario
-        ControleProduto.atualizar(idProduto, NmNome, NmMarca, DsDescricao, VlUnidade, DtPromocao, VlPromocao);
 
         //Redireciona pagina
         response.sendRedirect("listagemProdutos.jsp");

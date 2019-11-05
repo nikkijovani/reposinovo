@@ -8,7 +8,6 @@ package br.edu.iff.mercado.servlet;
 import br.edu.iff.mercado.controles.ControleProduto;
 import br.edu.iff.mercado.entidades.Produto;
 import java.io.IOException;
-import java.io.PrintWriter;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
