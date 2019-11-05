@@ -38,10 +38,10 @@ public class ControleProduto {
 
     //Localiza um usuario pelo id
     public static Produto buscar(Integer id) {
-        String IdProduto = id.toString();
+        String idProduto = id.toString();
         Session sessionRecheio;
         sessionRecheio = HibernateUtil.getSession();
-        String hql = "from Produto u where u.Id='" + IdProduto + "'";
+        String hql = "from Produto u where u.id='"+idProduto+"'";
         Produto produto = (Produto) sessionRecheio.createQuery(hql).uniqueResult();
         return produto;
     }
@@ -74,10 +74,10 @@ public class ControleProduto {
     }
 
 
-    public static void atualizar(String IdProduto, String NmNome, String NmMarca, String DsDescricao, BigDecimal VlUnidade, Date DtPromocao, BigDecimal VlPromocao) {
+    public static void atualizar(String idProduto, String NmNome, String NmMarca, String DsDescricao, BigDecimal VlUnidade, Date DtPromocao, BigDecimal VlPromocao) {
         Session sessionRecheio;
         sessionRecheio = HibernateUtil.getSession();
-        String hql = "from Produto u where u.Id='" + IdProduto + "'";
+        String hql = "from Produto u where u.id='"+ idProduto +"'";
         Produto produto = (Produto) sessionRecheio.createQuery(hql).uniqueResult();
         Transaction tr = sessionRecheio.beginTransaction();
         produto.setNmNome(NmNome);

@@ -13,7 +13,7 @@
     <body>
         <%@ include file="cabecalhoadm.jspf" %>
         <br>
-        <h2>Lista dos usuários admin's</h2>
+        <h2>Lista dos produtos!</h2>
         <%
             List<Produto> lista = ControleProduto.listar();
             request.setAttribute("produtos", lista);
@@ -25,8 +25,8 @@
             <display:column property="vlPromocao" title="Valor promocional"/>
             <display:column property="dtPromocao" title="Fim da Promoção"/>
             <display:column property="nmMarca" title="Marca"/>
-            <display:column value="alterar" title="Alterar" href="alteracaoProduto.jsp" paramId="idProduto" paramProperty="idProduto" />             
-            <display:column value="deletar" title="Deletar" autolink="true"  paramId="idProduto" paramProperty="idProduto" href="${pageContext.request.contextPath}/DeletarProduto"/>
+            <display:column value="alterar" title="Alterar" href="alteracaoProduto.jsp" paramId="pid" paramProperty="idProduto" />             
+            <display:column value="deletar" title="Deletar" autolink="true"  paramId="pid" paramProperty="idProduto" href="${pageContext.request.contextPath}/DeletarProduto"/>
             <display:setProperty name="basic.msg.empty_list" value="Nenhum produto cadastrado." />
         </display:table>
         <br>

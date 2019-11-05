@@ -19,7 +19,7 @@
         <br> 
         <h2>Editar Produto</h2>
         <%
-            String idProduto = request.getParameter("idProduto");
+            String idProduto = request.getParameter("pid");
             Produto produto = ControleProduto.buscar(Integer.parseInt(idProduto));
             if (produto == null) {
         %>
@@ -31,7 +31,7 @@
 
         <form method="POST" action="ASProduto">
             <div hidden>
-                ID Produto<input type="text" name="idProduto" value="<%=idProduto%>">
+                ID Produto<input type="text" name="pid" value="<%=idProduto%>">
             </div>
             Nome<input type="text" name="nome" value="<%=produto.getNmNome()%>">
             Descricao<input type="text" name="descricao" value="<%=produto.getDsDescricao()%>">

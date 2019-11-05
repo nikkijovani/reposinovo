@@ -26,7 +26,7 @@ public class ASProduto extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         //Captura parametros da tela
-        String IdProduto = request.getParameter("idProduto");
+        String idProduto = request.getParameter("pid");
         String NmNome = request.getParameter("nome");
         String NmMarca = request.getParameter("marca");
         String DsDescricao = request.getParameter("descricao");
@@ -46,7 +46,7 @@ public class ASProduto extends HttpServlet {
 
 
         //Chama de funcao para salvar ou atualizar usuario
-        ControleProduto.atualizar(IdProduto, NmNome, NmMarca, DsDescricao, VlUnidade, DtPromocao, VlPromocao);
+        ControleProduto.atualizar(idProduto, NmNome, NmMarca, DsDescricao, VlUnidade, DtPromocao, VlPromocao);
 
         //Redireciona pagina
         response.sendRedirect("listagemProdutos.jsp");
