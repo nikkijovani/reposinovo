@@ -29,6 +29,7 @@
                 usuario = ClienteControle.buscar(Integer.parseInt(idUsuario));
                 nome = usuario.getNmNome();
                 senha = usuario.getDsSenha();
+                
             } else {
                 idUsuario = "";
             }

@@ -187,6 +187,7 @@ public class Produto implements Serializable {
         return "br.edu.iff.mercado.entidades.Produto[ idProduto=" + idProduto + " ]";
     }
 
+<<<<<<< HEAD
     public void setId(Integer id) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
@@ -196,6 +197,9 @@ public class Produto implements Serializable {
     }
 
     public void setMarca(String marca) {
+=======
+    public void setId(int parseInt) {
+>>>>>>> 8f5ade626ccc5ce4825e8fb6faa779cc38c066ab
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
