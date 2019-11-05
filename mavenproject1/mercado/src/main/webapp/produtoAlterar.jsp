@@ -1,14 +1,12 @@
-<%@page import="br.edu.iff.mercado.classes.ControleProduto"%>
+
+<%@page import="br.edu.iff.mercado.controles.ControleProduto"%>
 <%@page import="br.edu.iff.mercado.entidades.Produto"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<jsp:directive.page import="br.edu.iff.mercado.entidades.Produto.java"/>
-<jsp:directive.page import="java.util*"/>
-<jsp:directive.page import="br.edu.iff.mercado.util.HibernateUtil"/>
 <!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>CRUD dos produtos</title>
+        <title>Alterar Produto</title>
     </head>
     <body>
         <h1>Alteração dos Produtos</h1>
@@ -31,12 +29,17 @@
             }
 
         %>
+<<<<<<< HEAD:mavenproject1/mercado/src/main/webapp/produtoAlterar.jsp
+        <form method="POST" action="CadastrarProdutoSA.java"
+             <input type="hidden" name="pid" value="<%=idProduto%>"/>
+=======
         <form method="POST" action="CadastrarProdutos.java">
               <div hidden>
                 ID<input type="text" name="pid" value="<%=idProduto%>"/>
             </div>
+>>>>>>> 8f5ade626ccc5ce4825e8fb6faa779cc38c066ab:mavenproject1/mercado/src/main/webapp/alterarProduto.jsp
             Nome<input type="text" name="nome" value="<%=nome%>"/>
-            Marca<input type="text" name="senha" value="<%=marca%>"/>
+            Marca<input type="text" name="marca" value="<%=marca%>"/>
             <input type="submit"/>
         </form>
     </body>

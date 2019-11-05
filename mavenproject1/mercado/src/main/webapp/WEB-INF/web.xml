@@ -37,12 +37,21 @@
         <servlet-class>br.edu.iff.mercado.servlet.CadastrarProdutos</servlet-class>
     </servlet>
     <servlet>
+<<<<<<< HEAD
+        <servlet-name>CadastroProdutoD</servlet-name>
+        <servlet-class>br.edu.iff.mercado.servlet.CadastroProdutoD</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>CadastrarProdutoSA</servlet-name>
+        <servlet-class>br.edu.iff.mercado.servlet.CadastrarProdutoSA</servlet-class>
+=======
         <servlet-name>ASProduto</servlet-name>
         <servlet-class>br.edu.iff.mercado.servlet.ASProduto</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>DeletarProduto</servlet-name>
         <servlet-class>br.edu.iff.mercado.servlet.DeletarProduto</servlet-class>
+>>>>>>> 8f5ade626ccc5ce4825e8fb6faa779cc38c066ab
     </servlet>
     <servlet-mapping>
         <servlet-name>cadastroclie</servlet-name>
@@ -81,12 +90,21 @@
         <url-pattern>/CadastrarProdutos</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
+<<<<<<< HEAD
+        <servlet-name>CadastroProdutoD</servlet-name>
+        <url-pattern>/CadastroProdutoD</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CadastrarProdutoSA</servlet-name>
+        <url-pattern>/CadastrarProdutoSA</url-pattern>
+=======
         <servlet-name>ASProduto</servlet-name>
         <url-pattern>/ASProduto</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>DeletarProduto</servlet-name>
         <url-pattern>/DeletarProduto</url-pattern>
+>>>>>>> 8f5ade626ccc5ce4825e8fb6faa779cc38c066ab
     </servlet-mapping>
     <session-config>
         <session-timeout>

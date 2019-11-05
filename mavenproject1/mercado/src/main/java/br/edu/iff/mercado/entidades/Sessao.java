@@ -45,6 +45,8 @@ public class Sessao implements Serializable {
     @NotNull
     @Column(name = "id_sessao")
     private Integer idSessao;
+    @OneToMany(mappedBy = "idSessao")
+    private Collection<Produto> produtoCollection;
 
     public Sessao() {
     }
@@ -67,6 +69,15 @@ public class Sessao implements Serializable {
 
     public void setIdSessao(Integer idSessao) {
         this.idSessao = idSessao;
+    }
+
+    @XmlTransient
+    public Collection<Produto> getProdutoCollection() {
+        return produtoCollection;
+    }
+
+    public void setProdutoCollection(Collection<Produto> produtoCollection) {
+        this.produtoCollection = produtoCollection;
     }
 
     @Override

@@ -1,15 +1,15 @@
+package br.edu.iff.mercado.controles;
+
+
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package br.edu.iff.mercado.controles;
 
 import br.edu.iff.mercado.entidades.Produto;
-import br.edu.iff.mercado.entidades.Sessao;
 import br.edu.iff.mercado.util.HibernateUtil;
-import java.math.BigDecimal;
-import java.util.Date;
 import java.util.List;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
@@ -19,21 +19,21 @@ import org.hibernate.Transaction;
  * @author aluno
  */
 public class ControleProduto {
-
     //Função de salvar/atualizar um produto
-    public static boolean salvar(Produto produto) {
-        try {
+    public static boolean salvar(Produto produto){
+        try{
             Session sessionRecheio;
             sessionRecheio = HibernateUtil.getSession();
             Transaction tr = sessionRecheio.beginTransaction();
             sessionRecheio.saveOrUpdate(produto);
-            System.out.println("PROMOÇÃO? " + produto.getVlPromocao());
             tr.commit();
             return true;
-        } catch (Exception ex) {
-            return false;
         }
+        catch(Exception ex){
+            return false;
+        }        
     }
+<<<<<<< HEAD
 
     //Localiza um usuario pelo id
     public static Produto buscar(Integer id) {
@@ -55,27 +55,48 @@ public class ControleProduto {
     }
 
     public static List<Produto> listarPorSessao(Sessao sessao) {
+=======
+    
+    //Localiza um produto pelo id
+    public static Produto buscar(Integer id)
+    {
+        String idProduto = id.toString();
         Session sessionRecheio;
         sessionRecheio = HibernateUtil.getSession();
-        String hql = "from Produto p WHERE p.idSessao = :idSessao";
-        List<Produto> lista = (List) sessionRecheio.createQuery(hql).setEntity("idSessao", sessao).list();
+        Transaction tr = sessionRecheio.beginTransaction();
+        String hql = "from Produto u where u.id='"+idProduto+"'";
+        Produto produto = (Produto)sessionRecheio.createQuery(hql).uniqueResult();
+        tr.commit();
+        return produto;
+    }
+    
+    //Retorna todos os produto do sistema
+    public static List<Produto> listar()
+    {
+>>>>>>> 735fbe2b60f40a3cf186f585d30de1adc4ad6bff
+        Session sessionRecheio;
+        sessionRecheio = HibernateUtil.getSession();
+        String hql = "from Produto u";
+        List<Produto> lista = (List)sessionRecheio.createQuery(hql).list();
         return lista;
     }
-
-    //Função de apagar um usuario
-    public static boolean deletar(Produto produto) {
-        try {
+    
+    //Função de apagar um produto
+    public static boolean deletar(Produto produto){
+        try{
             Session sessionRecheio;
             sessionRecheio = HibernateUtil.getSession();
             Transaction tr = sessionRecheio.beginTransaction();
             sessionRecheio.delete(produto);
             tr.commit();
             return true;
-        } catch (Exception ex) {
-            return false;
         }
+        catch(Exception ex){
+            return false;
+        }        
     }
 
+<<<<<<< HEAD
     public static void atualizar(String IdProduto, String NmNome, String NmMarca, String DsDescricao, BigDecimal VlUnidade, Date DtPromocao, BigDecimal VlPromocao) {
         Session sessionRecheio;
         sessionRecheio = HibernateUtil.getSession();
@@ -91,4 +112,9 @@ public class ControleProduto {
         sessionRecheio.saveOrUpdate(produto);
         tr.commit();
     }
+=======
+>>>>>>> 735fbe2b60f40a3cf186f585d30de1adc4ad6bff
 }
+    
+    
+
