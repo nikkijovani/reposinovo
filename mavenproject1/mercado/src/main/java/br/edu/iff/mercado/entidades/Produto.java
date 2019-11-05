@@ -6,7 +6,7 @@
 package br.edu.iff.mercado.entidades;
 
 import java.io.Serializable;
-import java.math.BigInteger;
+import java.math.BigDecimal;
 import java.util.Date;
 import javax.persistence.Basic;
 import javax.persistence.Column;
@@ -59,9 +59,9 @@ public class Produto implements Serializable {
     @Temporal(TemporalType.TIMESTAMP)
     private Date dtPromocao;
     @Column(name = "vl_unidade")
-    private BigInteger vlUnidade;
+    private BigDecimal vlUnidade;
     @Column(name = "vl_promocao")
-    private BigInteger vlPromocao;
+    private BigDecimal vlPromocao;
     @Size(max = 100)
     @Column(name = "ds_descricao")
     private String dsDescricao;
@@ -114,19 +114,19 @@ public class Produto implements Serializable {
         this.dtPromocao = dtPromocao;
     }
 
-    public BigInteger getVlUnidade() {
+    public BigDecimal getVlUnidade() {
         return vlUnidade;
     }
 
-    public void setVlUnidade(BigInteger vlUnidade) {
+    public void setVlUnidade(BigDecimal vlUnidade) {
         this.vlUnidade = vlUnidade;
     }
 
-    public BigInteger getVlPromocao() {
+    public BigDecimal getVlPromocao() {
         return vlPromocao;
     }
 
-    public void setVlPromocao(BigInteger vlPromocao) {
+    public void setVlPromocao(BigDecimal vlPromocao) {
         this.vlPromocao = vlPromocao;
     }
 
@@ -185,6 +185,18 @@ public class Produto implements Serializable {
     @Override
     public String toString() {
         return "br.edu.iff.mercado.entidades.Produto[ idProduto=" + idProduto + " ]";
+    }
+
+    public void setId(Integer id) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    public void setNome(String nome) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    public void setMarca(String marca) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
 }

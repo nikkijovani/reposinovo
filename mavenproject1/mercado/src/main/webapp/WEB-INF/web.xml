@@ -36,6 +36,14 @@
         <servlet-name>CadastrarProdutos</servlet-name>
         <servlet-class>br.edu.iff.mercado.servlet.CadastrarProdutos</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>CadastroProdutoD</servlet-name>
+        <servlet-class>br.edu.iff.mercado.servlet.CadastroProdutoD</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>CadastrarProdutoSA</servlet-name>
+        <servlet-class>br.edu.iff.mercado.servlet.CadastrarProdutoSA</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>cadastroclie</servlet-name>
         <url-pattern>/cadastroclie</url-pattern>
@@ -72,12 +80,20 @@
         <servlet-name>CadastrarProdutos</servlet-name>
         <url-pattern>/CadastrarProdutos</url-pattern>
     </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CadastroProdutoD</servlet-name>
+        <url-pattern>/CadastroProdutoD</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CadastrarProdutoSA</servlet-name>
+        <url-pattern>/CadastrarProdutoSA</url-pattern>
+    </servlet-mapping>
     <session-config>
         <session-timeout>
             30
         </session-timeout>
     </session-config>
-    <welcome-file-list>  
-        <welcome-file>index.jsp</welcome-file>  
-    </welcome-file-list>  
+    <welcome-file-list>
+        <welcome-file>index.jsp</welcome-file>
+    </welcome-file-list>
 </web-app>

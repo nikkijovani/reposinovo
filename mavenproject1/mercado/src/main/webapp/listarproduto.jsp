@@ -1,5 +1,5 @@
+<%@page import="br.edu.iff.mercado.controles.ControleProduto"%>
 <%@page import="br.edu.iff.mercado.entidades.Produto"%>
-<%@page import="br.edu.iff.mercado.classes.ControleProduto" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib uri="http://displaytag.sf.net" prefix="display"%>
 <jsp:directive.page import="br.edu.iff.mercado.classes.*"/>
@@ -15,17 +15,17 @@
         <h1>Lista dos produtos</h1>
         <%
             List<Produto> lista = ControleProduto.listar();
-            request.setAttribute("produtos", lista);
+            request.setAttribute("produto", lista);
         %>
-        <display:table name="lista">
-            <display:column property="id" title="ID" paramProperty="checkbox"/>
-            <display:column property="nome" title="Produto"/>
-            <display:column property="marca" title="Marca"/>
-            <display:column value="alterar" title="Alterar" href="alterar.jsp" paramId="pid" paramProperty="id" />             
-            <display:column value="deletar" title="Deletar" autolink="true"  paramId="pid" paramProperty="id" href="${pageContext.request.contextPath}/CadastrarProdutos"/>
+        <display:table name="produto" >
+            <display:column property="idProduto" title="ID" paramProperty="checkbox"/>
+            <display:column property="nmNome" title="Produto"/>
+            <display:column property="nmMarca" title="Marca"/>
+            <display:column value="alterar" title="Alterar" href="produtoAlterar.jsp" paramId="pid" paramProperty="idProduto" />             
+            <display:column value="deletar" title="Deletar" autolink="true"  paramId="pid" paramProperty="idProduto" href="${pageContext.request.contextPath}/CadastroProdutoD"/>
             <display:setProperty name="basic.msg.empty_list" value="Sem produtos" />
         </display:table>
         <br><br/>
-        <a href="alterar.jsp?pid=" >Criar novo produto</a>
+        <a href="produtoAlterar.jsp?pid=" >Criar novo produto</a>
     </body>
 </html>

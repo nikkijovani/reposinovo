@@ -1,11 +1,12 @@
-package br.edu.iff.mercado.classes;
+package br.edu.iff.mercado.controles;
+
+
 
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 
 import br.edu.iff.mercado.entidades.Produto;
 import br.edu.iff.mercado.util.HibernateUtil;
@@ -19,7 +20,7 @@ import org.hibernate.Transaction;
  */
 public class ControleProduto {
     //Função de salvar/atualizar um produto
-    public static boolean salvar(ControleProduto produto){
+    public static boolean salvar(Produto produto){
         try{
             Session sessionRecheio;
             sessionRecheio = HibernateUtil.getSession();
@@ -51,15 +52,13 @@ public class ControleProduto {
     {
         Session sessionRecheio;
         sessionRecheio = HibernateUtil.getSession();
-        Transaction tr = sessionRecheio.beginTransaction();
         String hql = "from Produto u";
         List<Produto> lista = (List)sessionRecheio.createQuery(hql).list();
-        tr.commit();
         return lista;
     }
     
     //Função de apagar um produto
-    public static boolean deletar(ControleProduto produto){
+    public static boolean deletar(Produto produto){
         try{
             Session sessionRecheio;
             sessionRecheio = HibernateUtil.getSession();
@@ -71,15 +70,8 @@ public class ControleProduto {
         catch(Exception ex){
             return false;
         }        
-    }    
-
-    public static void deletar(Produto produto) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    public void setId(int parseInt) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
 }
     
     

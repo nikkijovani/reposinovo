@@ -6,16 +6,19 @@
 package br.edu.iff.mercado.entidades;
 
 import java.io.Serializable;
+import java.util.Collection;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
@@ -39,6 +42,8 @@ public class Sessao implements Serializable {
     @NotNull
     @Column(name = "id_sessao")
     private Integer idSessao;
+    @OneToMany(mappedBy = "idSessao")
+    private Collection<Produto> produtoCollection;
 
     public Sessao() {
     }
@@ -61,6 +66,15 @@ public class Sessao implements Serializable {
 
     public void setIdSessao(Integer idSessao) {
         this.idSessao = idSessao;
+    }
+
+    @XmlTransient
+    public Collection<Produto> getProdutoCollection() {
+        return produtoCollection;
+    }
+
+    public void setProdutoCollection(Collection<Produto> produtoCollection) {
+        this.produtoCollection = produtoCollection;
     }
 
     @Override
