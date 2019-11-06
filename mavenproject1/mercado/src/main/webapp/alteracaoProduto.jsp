@@ -5,6 +5,7 @@
 <%@page import="org.hibernate.Transaction"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <jsp:directive.page import="java.util.*" />
+<jsp:directive.page import="java.text.SimpleDateFormat" />
 <jsp:directive.page import="br.edu.iff.mercado.util.HibernateUtil.*" />
 
 <!DOCTYPE html>
@@ -27,6 +28,7 @@
 
         <% } else {
                 session.setAttribute("produtoEditado", produto);
+                String dataPromo = new SimpleDateFormat("dd/MM/yyyy").format(produto.getDtPromocao());
         %>
 
         <form method="POST" action="ASProduto">
@@ -38,7 +40,7 @@
             Marca<input type="text" name="marca" value="<%=produto.getNmMarca()%>">
             Valor unidade<input type="text" name="vlunidade" value="<%=produto.getVlUnidade()%>">
             Valor promocional<input type="text" name="vlpromocao" value="<%=produto.getVlPromocao()%>">
-            Fim da Promoção<input type="text" name="dtpromocao" value="<%=produto.getDtPromocao()%>">
+            Fim da Promoção<input type="text" name="dtpromocao" value="<%=dataPromo%>">
             <input type="submit">
         </form>
         <% }%>

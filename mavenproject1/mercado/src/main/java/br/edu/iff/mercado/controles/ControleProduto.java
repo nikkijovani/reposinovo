@@ -1,13 +1,10 @@
 package br.edu.iff.mercado.controles;
 
-
-
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 import br.edu.iff.mercado.entidades.Produto;
 import br.edu.iff.mercado.util.HibernateUtil;
 import java.math.BigDecimal;
@@ -21,19 +18,19 @@ import org.hibernate.Transaction;
  * @author aluno
  */
 public class ControleProduto {
+
     //Função de salvar/atualizar um produto
-    public static boolean salvar(Produto produto){
-        try{
+    public static boolean salvar(Produto produto) {
+        try {
             Session sessionRecheio;
             sessionRecheio = HibernateUtil.getSession();
             Transaction tr = sessionRecheio.beginTransaction();
             sessionRecheio.saveOrUpdate(produto);
             tr.commit();
             return true;
-        }
-        catch(Exception ex){
+        } catch (Exception ex) {
             return false;
-        }        
+        }
     }
 
     //Localiza um usuario pelo id
@@ -41,7 +38,7 @@ public class ControleProduto {
         String IdProduto = id.toString();
         Session sessionRecheio;
         sessionRecheio = HibernateUtil.getSession();
-        String hql = "from Produto u where u.id='"+IdProduto+"'";
+        String hql = "from Produto u where u.id='" + IdProduto + "'";
         Produto produto = (Produto) sessionRecheio.createQuery(hql).uniqueResult();
         return produto;
     }
@@ -55,43 +52,41 @@ public class ControleProduto {
         return lista;
     }
 
-    
-   
-    
     //Função de apagar um produto
-    public static boolean deletar(Produto produto){
-        try{
+    public static boolean deletar(Produto produto) {
+        try {
             Session sessionRecheio;
             sessionRecheio = HibernateUtil.getSession();
             Transaction tr = sessionRecheio.beginTransaction();
             sessionRecheio.delete(produto);
             tr.commit();
             return true;
-        }
-        catch(Exception ex){
+        } catch (Exception ex) {
             return false;
-        }        
+        }
     }
-
 
     public static void atualizar(String IdProduto, String NmNome, String NmMarca, String DsDescricao, BigDecimal VlUnidade, Date DtPromocao, BigDecimal VlPromocao) {
         Session sessionRecheio;
         sessionRecheio = HibernateUtil.getSession();
-        String hql = "from Produto u where u.id='"+ IdProduto +"'";
-        Produto produto = (Produto) sessionRecheio.createQuery(hql).uniqueResult();
         Transaction tr = sessionRecheio.beginTransaction();
+        String hql = "from Produto u where u.id='" + IdProduto + "'";
+        Produto produto = (Produto) sessionRecheio.createQuery(hql).uniqueResult();
         produto.setNmNome(NmNome);
         produto.setNmMarca(NmMarca);
         produto.setDsDescricao(DsDescricao);
         produto.setVlUnidade(VlUnidade);
         produto.setVlPromocao(VlPromocao);
         produto.setDtPromocao(DtPromocao);
-        
-        sessionRecheio.saveOrUpdate(produto);
-        tr.commit();
+        try {
+            sessionRecheio.saveOrUpdate(produto);
+            tr.commit();
+        } catch (Exception e) {
+            e.printStackTrace();
+            System.out.println("truly wtf man");
+            e.getCause().printStackTrace();
+        }
+
     }
 
 }
-    
-    
-

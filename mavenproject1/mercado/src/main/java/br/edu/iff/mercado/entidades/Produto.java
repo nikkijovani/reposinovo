@@ -74,6 +74,8 @@ public class Produto implements Serializable {
     @JoinColumn(name = "id_sessao", referencedColumnName = "id_sessao")
     @ManyToOne
     private Sessao idSessao;
+    
+    
 
     public Produto() {
     }
