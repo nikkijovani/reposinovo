@@ -17,8 +17,16 @@
         <servlet-class>br.edu.iff.mercado.servlet.DeletarAdmin</servlet-class>
     </servlet>
     <servlet>
+        <servlet-name>DeletarProduto</servlet-name>
+        <servlet-class>br.edu.iff.mercado.servlet.DeletarProduto</servlet-class>
+    </servlet>
+    <servlet>
         <servlet-name>AdminAS</servlet-name>
         <servlet-class>br.edu.iff.mercado.servlet.AdminAS</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ASProduto</servlet-name>
+        <servlet-class>br.edu.iff.mercado.servlet.ASProduto</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>DeletarCliente</servlet-name>
@@ -53,9 +61,17 @@
         <servlet-name>DeletarAdmin</servlet-name>
         <url-pattern>/DeletarAdmin</url-pattern>
     </servlet-mapping>
+     <servlet-mapping>
+        <servlet-name>DeletarProduto</servlet-name>
+        <url-pattern>/DeletarProduto</url-pattern>
+    </servlet-mapping>
     <servlet-mapping>
         <servlet-name>AdminAS</servlet-name>
         <url-pattern>/AdminAS</url-pattern>
+    </servlet-mapping>
+     <servlet-mapping>
+        <servlet-name>ASProduto</servlet-name>
+        <url-pattern>/ASProduto</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>DeletarCliente</servlet-name>

@@ -22,11 +22,11 @@ public class DeletarProduto extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         //Captura id da tela
-        String idProduto = request.getParameter("pid");
+        String IdProduto = request.getParameter("pid");
         
         //Cria instancia do usuario com id informado
         Produto produto = new Produto();
-        produto.setId(Integer.parseInt(idProduto));
+        produto.setId(Integer.parseInt(IdProduto));
         
         //Chama de funcao para apagar usuario
         ControleProduto.deletar(produto);

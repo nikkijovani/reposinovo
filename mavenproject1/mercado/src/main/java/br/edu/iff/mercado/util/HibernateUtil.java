@@ -41,7 +41,6 @@ public class HibernateUtil {
         cfg.addAnnotatedClass(Admin.class);
         cfg.addAnnotatedClass(Produto.class);
         cfg.addAnnotatedClass(Sessao.class);
-        cfg.addAnnotatedClass(Produto.class);
 
         factory = cfg.buildSessionFactory();
     }
