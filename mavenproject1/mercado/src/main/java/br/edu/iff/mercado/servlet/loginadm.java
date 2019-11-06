@@ -85,7 +85,8 @@ public class loginadm extends HttpServlet {
         if (user == null) {
             response.sendRedirect("logininvalido.html");
         } else {
-            response.sendRedirect("indexadm.html");
+            request.getSession().setAttribute("admlogado", user);
+            response.sendRedirect("index.jsp");
         }
         
     }

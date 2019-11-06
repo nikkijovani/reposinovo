@@ -23,6 +23,7 @@ public class ClienteAS extends HttpServlet {
             throws ServletException, IOException {
         //Captura parametros da tela
         String idtext = request.getParameter("pid");
+        Integer id = Integer.parseInt(idtext);
         String NmNome = request.getParameter("nome");
         String DsSenha = request.getParameter("senha");
         String NrTelefone = request.getParameter("telefone");
@@ -33,12 +34,10 @@ public class ClienteAS extends HttpServlet {
 
         //Cria instancia do usuario
         Cliente usuario = new Cliente();        
-        //Detecta se é usuario novo ou antigo
-        if(!idtext.isEmpty()){
-            Integer id = Integer.parseInt(idtext);
-            usuario.setId(id);
-        }
+        
         //Insere informações no objeto
+        
+        usuario.setId(id);
         usuario.setNmNome(NmNome);
         usuario.setDsSenha(DsSenha);
         usuario.setNrTelefone(NrTelefone);
@@ -49,8 +48,8 @@ public class ClienteAS extends HttpServlet {
 
         //Chama de funcao para salvar ou atualizar usuario
         ClienteControle.salvar(usuario);
-        
+        request.getSession().setAttribute("usuariologado", usuario);
         //Redireciona pagina
-        response.sendRedirect("perfilcliente.jsp");
+        response.sendRedirect("index.jsp");
     }
 }

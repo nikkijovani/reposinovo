@@ -19,17 +19,26 @@
                     <li><a	href="bebidas.html">Bebidas</a></li>
                 </ul>
             </li>
+            <%
+                Cliente usuario = (Cliente) session.getAttribute("usuariologado");
+                Admin adm = (Admin) session.getAttribute("admlogado");
+                
+                if (usuario == null && adm == null) {
+            %>
             <li> <a href="loginadm.jsp">Adm</a> </li>
-                <% Cliente usuario = (Cliente) session.getAttribute("usuariologado");
-                    if (usuario == null) {
-                %>
-            <li><a	href="login.html">Login</a></li>
-            <li><a	href="cadastro.html">Cadastro</a></li>
-                <% } else {%>
-            <li><a	href="editarperfil.jsp">Configurações</a></li>
+            <li> <a href="login.html">Login</a></li>
+            <li> <a href="cadastro.html">Cadastro</a></li>
+                <% } else if (usuario == null && adm != null) {%>
+            <li><a href="listarAdmin.jsp">Listar Admin's</a></li>
+            <li><a href="alterarAdmin.jsp?id=" >Criar um novo Admin</a></li>
+            <li><a href="listagemProdutos.jsp">Produtos</a></li>
+            <li><a href="alteracaoProduto.jsp?id=" >Criar um novo Admin</a></li>
+            <li><a	href="perfilcliente.jsp">Olá, <%=adm.getNmNome()%>!</a></li>
+            <li><a	href="servletLogout">Sair</a></li>
+                <% } else { %>
             <li><a	href="perfilcliente.jsp">Olá, <%=usuario.getNmNome()%>!</a></li>
             <li><a	href="servletLogout">Sair</a></li>
-                <% }%>
+            <%}%>
         </ul>
     </nav>
 
