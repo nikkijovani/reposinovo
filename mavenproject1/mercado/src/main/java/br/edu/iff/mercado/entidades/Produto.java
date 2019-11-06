@@ -43,7 +43,8 @@ import javax.xml.bind.annotation.XmlRootElement;
     , @NamedQuery(name = "Produto.findByVlUnidade", query = "SELECT p FROM Produto p WHERE p.vlUnidade = :vlUnidade")
     , @NamedQuery(name = "Produto.findByVlPromocao", query = "SELECT p FROM Produto p WHERE p.vlPromocao = :vlPromocao")
     , @NamedQuery(name = "Produto.findByDsDescricao", query = "SELECT p FROM Produto p WHERE p.dsDescricao = :dsDescricao")
-    , @NamedQuery(name = "Produto.findByExtensao", query = "SELECT p FROM Produto p WHERE p.extensao = :extensao")})
+    /*, @NamedQuery(name = "Produto.findByExtensao", query = "SELECT p FROM Produto p WHERE p.extensao = :extensao")*/
+})
 public class Produto implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -53,6 +54,7 @@ public class Produto implements Serializable {
     @Size(max = 500)
     @Column(name = "nm_marca")
     private String nmMarca;
+    
     @Id
     @Basic(optional = false)
     @NotNull
@@ -60,6 +62,7 @@ public class Produto implements Serializable {
     @SequenceGenerator(name="geraProd", sequenceName = "sq_prod")
     @Column(name = "id_produto")
     private Integer idProduto;
+    
     @Column(name = "dt_promocao")
     @Temporal(TemporalType.TIMESTAMP)
     private Date dtPromocao;
@@ -70,12 +73,12 @@ public class Produto implements Serializable {
     @Size(max = 100)
     @Column(name = "ds_descricao")
     private String dsDescricao;
-    @Lob
+    /*@Lob
     @Column(name = "ft_produto")
     private byte[] ftProduto;
     @Size(max = 2147483647)
     @Column(name = "extensao")
-    private String extensao;
+    private String extensao;*/
     @JoinColumn(name = "id_sessao", referencedColumnName = "id_sessao")
     @ManyToOne
     private Sessao idSessao;
@@ -143,7 +146,7 @@ public class Produto implements Serializable {
         this.dsDescricao = dsDescricao;
     }
 
-    public byte[] getFtProduto() {
+    /*public byte[] getFtProduto() {
         return ftProduto;
     }
 
@@ -157,7 +160,7 @@ public class Produto implements Serializable {
 
     public void setExtensao(String extensao) {
         this.extensao = extensao;
-    }
+    }*/
 
     public Sessao getIdSessao() {
         return idSessao;
@@ -190,22 +193,6 @@ public class Produto implements Serializable {
     @Override
     public String toString() {
         return "br.edu.iff.mercado.entidades.Produto[ idProduto=" + idProduto + " ]";
-    }
-
-
-    public void setId(Integer id) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    public void setNome(String nome) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    public void setMarca(String marca) {
-        
-    }
-    public void setId(int parseInt) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
 }

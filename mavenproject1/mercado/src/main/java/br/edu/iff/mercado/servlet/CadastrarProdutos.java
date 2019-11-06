@@ -6,8 +6,10 @@
 package br.edu.iff.mercado.servlet;
 
 import br.edu.iff.mercado.controles.ControleProduto;
+import br.edu.iff.mercado.controles.ControleSessao;
 
 import br.edu.iff.mercado.entidades.Produto;
+import br.edu.iff.mercado.entidades.Sessao;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -66,7 +68,7 @@ public class CadastrarProdutos extends HttpServlet {
         //Cria instancia do produto com id informado
 
         Produto produto = new Produto();
-        produto.setId(Integer.parseInt(idProduto));
+        produto.setIdProduto(Integer.parseInt(idProduto));
        // produto.setId(Integer.parseInt(idtext));
         
         //Chama de funcao para apagar produto
@@ -93,13 +95,16 @@ public class CadastrarProdutos extends HttpServlet {
         //Cria instancia do produto com id informado
         Produto produto = new Produto();
         produto.setNmNome(request.getParameter("nome"));
-        produto.setMarca(request.getParameter("marca"));
+        produto.setNmMarca(request.getParameter("marca"));
+        
+        Sessao verdura = ControleSessao.buscar(1);
+        produto.setIdSessao(verdura);
 
         //Chama de funcao para salvar produto
        ControleProduto.salvar(produto);
         
         //Redireciona pagina
-        response.sendRedirect("index.jsp");
+        response.sendRedirect("listarproduto.jsp");
     }
 
     /**

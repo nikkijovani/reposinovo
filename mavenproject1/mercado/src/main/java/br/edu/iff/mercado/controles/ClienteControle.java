@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package br.edu.iff.mercado.servlet;
+package br.edu.iff.mercado.controles;
 
 import java.util.List;
 import org.hibernate.Session;

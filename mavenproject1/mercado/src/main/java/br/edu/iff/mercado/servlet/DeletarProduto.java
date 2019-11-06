@@ -26,7 +26,7 @@ public class DeletarProduto extends HttpServlet {
         
         //Cria instancia do usuario com id informado
         Produto produto = new Produto();
-        produto.setId(Integer.parseInt(IdProduto));
+        produto.setIdProduto(Integer.parseInt(IdProduto));
         
         //Chama de funcao para apagar usuario
         ControleProduto.deletar(produto);
