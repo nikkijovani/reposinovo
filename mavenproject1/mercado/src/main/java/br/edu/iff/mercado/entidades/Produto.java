@@ -11,12 +11,15 @@ import java.util.Date;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -53,6 +56,8 @@ public class Produto implements Serializable {
     @Id
     @Basic(optional = false)
     @NotNull
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "geraProd")
+    @SequenceGenerator(name="geraProd", sequenceName = "sq_prod")
     @Column(name = "id_produto")
     private Integer idProduto;
     @Column(name = "dt_promocao")

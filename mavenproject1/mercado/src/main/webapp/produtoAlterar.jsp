@@ -9,7 +9,7 @@
         <title>Alterar Produto</title>
     </head>
     <body>
-        <h1>Alteração dos Produtos</h1>
+        <h1>Alteração ou Adição dos Produtos</h1>
         <%
             //Criar variáveis dos produtos
             Produto produto = new Produto();
@@ -24,21 +24,20 @@
                 produto = ControleProduto.buscar(Integer.parseInt(idProduto));
                 nome = produto.getNmNome();
                 marca = produto.getNmMarca();
-            } else {
-                idProduto = "";
-            }
-
         %>
-        <form method="POST" action="CadastrarProdutoSA.java"
-             <input type="hidden" name="pid" value="<%=idProduto%>"/>
-
-        <form method="POST" action="CadastrarProdutos.java">
-              <div hidden>
-                ID<input type="text" name="pid" value="<%=idProduto%>"/>
-            </div>
-            Nome<input type="text" name="nome" value="<%=nome%>"/>
-            Marca<input type="text" name="marca" value="<%=marca%>"/>
-            <input type="submit"/>
-        </form>
+        <form method="POST" action="CadastrarProdutoSA">
+            <%
+            } else {
+            %>
+            <form method="POST" action="CadastrarProdutos">
+                <%              
+                    idProduto = "";
+                    }
+                %>
+                <input type="hidden" name="pid" value="<%=idProduto%>"/>
+                Nome<input type="text" name="nome" value="<%=nome%>"/>
+                Marca<input type="text" name="marca" value="<%=marca%>"/>
+                <input type="submit"/>
+            </form>
     </body>
 </html>
