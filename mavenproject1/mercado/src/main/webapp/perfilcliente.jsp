@@ -5,7 +5,7 @@
 --%>
 
 <%@page import="br.edu.iff.mercado.entidades.Cliente"%>
-<%@page import="br.edu.iff.mercado.servlet.ClienteControle"%>
+<%@page import="br.edu.iff.mercado.controles.ClienteControle"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -60,7 +60,7 @@
                     </div>
 
                     <div class="button">
-                        <input type="submit" value="Alterar">
+                        <input type="submit" value="Alterar" href="index.jsp">
                     </div>
                 </form>
             </div><!--/formulario-->

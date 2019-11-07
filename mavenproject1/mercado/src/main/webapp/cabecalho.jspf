@@ -6,7 +6,6 @@
     <img src="imagens /logosite.png" width=155px right=55px alt="Mercearia online">
     <nav class="menu">
         <ul>
-            <li><a	href="index.html">Página inicial</a></li>
             <li><a	href="contato.html">Contato</a>
             <li><a	href="sessaodeprodutos.html">Sessão de produtos</a>
                 <ul>
@@ -30,11 +29,12 @@
             <li> <a href="cadastro.html">Cadastro</a></li>
                 <% } else if (usuario == null && adm != null) {%>
             <li><a href="listarAdmin.jsp">Listar Admin's</a></li>
-            <li><a href="alterarAdmin.jsp?id=" >Criar um novo Admin</a></li>
-            <li><a href="listagemProdutos.jsp">Produtos</a></li>
-            <li><a href="alteracaoProduto.jsp?id=" >Criar um novo Admin</a></li>
-            <li><a	href="perfilcliente.jsp">Olá, <%=adm.getNmNome()%>!</a></li>
-            <li><a	href="servletLogout">Sair</a></li>
+            <li><a href="alterarAdmin.jsp?id=">Criar um novo Admin</a></li>
+            <li><a href="listagemProdutos.jsp">Atualizar Produto</a></li>
+            <li><a href="listarproduto.jsp">Lista de Produtos</a></li>
+            <li><a href="alterarProduto.jsp?id=">Atualizar produtos</a></li>
+            <li><a href="perfilcliente.jsp">Olá, <%=adm.getNmNome()%>!</a></li>
+            <li><a href="servletLogout">Sair</a></li>
                 <% } else { %>
             <li><a	href="perfilcliente.jsp">Olá, <%=usuario.getNmNome()%>!</a></li>
             <li><a	href="servletLogout">Sair</a></li>
