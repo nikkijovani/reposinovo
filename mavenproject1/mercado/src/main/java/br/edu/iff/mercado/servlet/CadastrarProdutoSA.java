@@ -33,8 +33,8 @@ public class CadastrarProdutoSA extends HttpServlet {
             produto = ControleProduto.buscar(Integer.parseInt(idProduto));
         }
         //Insere informações no objeto
-        produto.setNome(nome);
-        produto.setMarca(marca);
+        produto.setNmNome(nome);
+        produto.setNmMarca(marca);
 
         //Chama de funcao para salvar ou atualizar produto
         ControleProduto.salvar(produto);

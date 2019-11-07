@@ -16,7 +16,7 @@
         <title>Alterando produtos!</title>
     </head>
     <body>
-        <%@ include file="cabecalhoadm.jspf" %>
+        <%@ include file="cabecalho.jspf" %>
         <br> 
         <h2>Editar Produto</h2>
         <%

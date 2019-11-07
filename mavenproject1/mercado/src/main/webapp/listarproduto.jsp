@@ -2,7 +2,6 @@
 <%@page import="br.edu.iff.mercado.entidades.Produto"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib uri="http://displaytag.sf.net" prefix="display"%>
-<jsp:directive.page import="br.edu.iff.mercado.classes.*"/>
 <jsp:directive.page import="br.edu.iff.mercado.entidades.*"/>
 <jsp:directive.page import="java.util.*" />
 <!DOCTYPE html>

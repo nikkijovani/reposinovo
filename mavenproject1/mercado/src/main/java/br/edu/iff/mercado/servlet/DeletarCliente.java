@@ -5,6 +5,7 @@
  */
 package br.edu.iff.mercado.servlet;
 
+import br.edu.iff.mercado.controles.ClienteControle;
 import br.edu.iff.mercado.entidades.Cliente;
 import java.io.IOException;
 import javax.servlet.ServletException;

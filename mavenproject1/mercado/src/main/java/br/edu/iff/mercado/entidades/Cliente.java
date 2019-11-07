@@ -171,5 +171,5 @@ public class Cliente implements Serializable {
     public String toString() {
         return "br.edu.iff.mercado.entidades.Cliente[ id=" + id + " ]";
     }
-    
+
 }

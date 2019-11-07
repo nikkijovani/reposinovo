@@ -11,7 +11,7 @@
         <title>Crud Admin</title>
     </head>
     <body>
-        <%@ include file="cabecalhoadm.jspf" %>
+        <%@ include file="cabecalho.jspf" %>
         <br>
         <h2>Lista dos usuários admin's</h2>
         <%
