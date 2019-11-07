@@ -89,23 +89,17 @@ public class CadastrarProdutos extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-         //Captura id da tela
-        String idProduto = request.getParameter("pid");
         
         //Cria instancia do produto com id informado
         Produto produto = new Produto();
-        produto.setIdProduto(Integer.parseInt(idProduto));
-        
+        produto.setNmNome(request.getParameter("nome"));
+        produto.setMarca(request.getParameter("marca"));
 
-       //Produtos produto = new Produtos();        
-
-        //Chama de funcao para apagar produto
-       ControleProduto.deletar(produto);
+        //Chama de funcao para salvar produto
+       ControleProduto.salvar(produto);
         
         //Redireciona pagina
-        response.sendRedirect("index.html");
-        
-        processRequest(request, response);
+        response.sendRedirect("index.jsp");
     }
 
     /**

@@ -28,7 +28,9 @@ public class ControleProduto {
             sessionRecheio.saveOrUpdate(produto);
             tr.commit();
             return true;
+
         } catch (Exception ex) {
+            ex.printStackTrace();
             return false;
         }
     }

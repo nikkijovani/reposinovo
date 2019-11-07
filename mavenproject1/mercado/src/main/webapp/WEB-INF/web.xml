@@ -32,6 +32,14 @@
         <servlet-name>DeletarCliente</servlet-name>
         <servlet-class>br.edu.iff.mercado.servlet.DeletarCliente</servlet-class>
     </servlet>
+     <servlet>
+        <servlet-name>CadastrarProdutoSA</servlet-name>
+        <servlet-class>br.edu.iff.mercado.servlet.CadastrarProdutoSA</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>CadastroProdutoD</servlet-name>
+        <servlet-class>br.edu.iff.mercado.servlet.CadastroProdutoD</servlet-class>
+    </servlet>
     <servlet>
         <servlet-name>ClienteAS</servlet-name>
         <servlet-class>br.edu.iff.mercado.servlet.ClienteAS</servlet-class>
@@ -89,7 +97,14 @@
         <servlet-name>CadastrarProdutos</servlet-name>
         <url-pattern>/CadastrarProdutos</url-pattern>
     </servlet-mapping>
-
+    <servlet-mapping>
+        <servlet-name>CadastroProdutoD</servlet-name>
+        <url-pattern>/CadastroProdutoD</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CadastrarProdutoSA</servlet-name>
+        <url-pattern>/CadastrarProdutoSA</url-pattern>
+    </servlet-mapping>
     <session-config>
         <session-timeout>
             30
