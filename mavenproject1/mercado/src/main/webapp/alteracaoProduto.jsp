@@ -5,6 +5,7 @@
 <%@page import="org.hibernate.Transaction"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <jsp:directive.page import="java.util.*" />
+<jsp:directive.page import="java.text.SimpleDateFormat" />
 <jsp:directive.page import="br.edu.iff.mercado.util.HibernateUtil.*" />
 
 <!DOCTYPE html>
@@ -26,6 +27,7 @@
         <h3>Produto não encontrado!</h3>
 
         <% } else {
+<<<<<<< HEAD
             session.setAttribute("produtoEditado", produto);
             String promo;
              if (produto.getVlPromocao() == null) {
@@ -34,6 +36,10 @@
                 promo = produto.getVlPromocao().toString();
             }
 
+=======
+                session.setAttribute("produtoEditado", produto);
+                String dataPromo = new SimpleDateFormat("dd/MM/yyyy").format(produto.getDtPromocao());
+>>>>>>> 7527c5d39e3152781eca60df9541556d7249038b
         %>
 
         <form method="POST" action="ASProduto">
@@ -44,8 +50,13 @@
             Descricao<input type="text" name="descricao" value="<%=produto.getDsDescricao()%>">
             Marca<input type="text" name="marca" value="<%=produto.getNmMarca()%>">
             Valor unidade<input type="text" name="vlunidade" value="<%=produto.getVlUnidade()%>">
+<<<<<<< HEAD
             Valor promocional<input type="text" name="vlpromocao" value="<%=promo%>">
             Fim da Promoção<input type="text" name="dtpromocao" value="<%=produto.getDtPromocao()%>">
+=======
+            Valor promocional<input type="text" name="vlpromocao" value="<%=produto.getVlPromocao()%>">
+            Fim da Promoção<input type="text" name="dtpromocao" value="<%=dataPromo%>">
+>>>>>>> 7527c5d39e3152781eca60df9541556d7249038b
             <input type="submit">
         </form>
         <% }%>
