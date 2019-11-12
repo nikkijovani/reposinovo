@@ -13,6 +13,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
         <link rel="stylesheet" type="text/css" href="css\beleza.css">
+        <link rel="stylesheet" type="text/css" href="css\cssdocontato.css">
     </head>
     <body>
         <%@ include file="cabecalho.jspf" %>
@@ -39,7 +40,7 @@
                         <input name="telefone" type="text" class="p" id="celular" value="<%=usuario.getNrTelefone()%>">
                     </div>
                     <div>
-                        <label>CPF</label>
+                        <label>* CPF</label>
                         <input name="cpf" type="text" class="p" id="cpf" value="<%=usuario.getNrCpf()%>">
                     </div>
                     <div>
@@ -51,11 +52,11 @@
                         <input name="endereco" type="text" class="g" value="<%=usuario.getEndereco()%>">
                     </div> 
                     <div>
-                        <label>Senha</label>
+                        <label> * Senha</label>
                         <input name="senha" type="password" class="p" value="<%=usuario.getDsSenha()%>">  
                     </div>
                     <div>
-                        <label>Confirmar senha</label>
+                        <label>* Confirmar senha</label>
                         <input name="senha" type="password" class="p">  
                     </div>
 

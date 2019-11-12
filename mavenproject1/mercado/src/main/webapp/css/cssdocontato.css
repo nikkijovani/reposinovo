@@ -1,4 +1,6 @@
-form {
+h1 {
+    text-align: center;
+}form {
     /* Apenas para centralizar o form na página */
     margin: 0 auto;
     width: 850px;
@@ -6,7 +8,7 @@ form {
     padding: 1em;
     border: 1px solid #CCC;
     border-radius: 1em;
-    font-size: 25px;
+    font-size: 20px;
 }
 form div + div {
     margin-top: 1em;
