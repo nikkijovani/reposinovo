@@ -26,7 +26,14 @@
         <h3>Produto não encontrado!</h3>
 
         <% } else {
-                session.setAttribute("produtoEditado", produto);
+            session.setAttribute("produtoEditado", produto);
+            String promo;
+             if (produto.getVlPromocao() == null) {
+                promo = "";
+            } else{
+                promo = produto.getVlPromocao().toString();
+            }
+
         %>
 
         <form method="POST" action="ASProduto">
@@ -37,7 +44,7 @@
             Descricao<input type="text" name="descricao" value="<%=produto.getDsDescricao()%>">
             Marca<input type="text" name="marca" value="<%=produto.getNmMarca()%>">
             Valor unidade<input type="text" name="vlunidade" value="<%=produto.getVlUnidade()%>">
-            Valor promocional<input type="text" name="vlpromocao" value="<%=produto.getVlPromocao()%>">
+            Valor promocional<input type="text" name="vlpromocao" value="<%=promo%>">
             Fim da Promoção<input type="text" name="dtpromocao" value="<%=produto.getDtPromocao()%>">
             <input type="submit">
         </form>
