@@ -69,6 +69,11 @@ form {
 form div + div {
     margin-top: 1em;
 }
+p {
+    text-align: center;
+    font-size: 15px;
+    color: red;
+}
 label {
     /*Para ter certeza que todas as labels tem o mesmo tamanho e estão propriamente alinhadas */
     display: inline-block;
