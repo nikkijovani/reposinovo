@@ -10,8 +10,6 @@ package br.edu.iff.mercado.controles;
 
 import br.edu.iff.mercado.entidades.Sessao;
 import br.edu.iff.mercado.util.HibernateUtil;
-import java.math.BigDecimal;
-import java.util.Date;
 import java.util.List;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
@@ -56,9 +54,6 @@ public class ControleSessao {
         return lista;
     }
 
-    
-   
-    
     //Função de apagar um produto
     public static boolean deletar(Sessao sessao){
         try{

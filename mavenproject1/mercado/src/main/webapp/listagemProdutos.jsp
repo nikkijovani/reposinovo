@@ -8,19 +8,18 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link rel="stylesheet" type="text/css" href="css\beleza.css">
-        <title>Lista de Produtos</title>
+        <title>Add. Promoção</title>
     </head>
     <body>
         <%@ include file="cabecalho.jspf" %>
         <br>
-        <h2>Lista dos produtos!</h2>
+        <h2>Add. Promoção!</h2>
         <%
             List<Produto> lista = ControleProduto.listar();
             request.setAttribute("produtos", lista);
         %>
         <display:table name="produtos">
             <display:column property="nmNome" title="Nome"/>
-            <display:column property="nmMarca" title="Marca"/>
             <display:column property="vlUnidade" title="Preço/unidade"/>
             <display:column property="vlPromocao" title="Valor promocional"/>
             <display:column property="dtPromocao" title="Fim da Promoção"/>

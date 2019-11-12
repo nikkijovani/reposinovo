@@ -7,7 +7,9 @@ package br.edu.iff.mercado.servlet;
 
 import br.edu.iff.mercado.controles.ControleProduto;
 import br.edu.iff.mercado.entidades.Produto;
+import br.edu.iff.mercado.entidades.Sessao;
 import java.io.IOException;
+import java.math.BigDecimal;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -25,6 +27,10 @@ public class CadastrarProdutoSA extends HttpServlet {
         String idProduto = request.getParameter("pid");
         String nome = request.getParameter("nome");
         String marca = request.getParameter("marca");
+        String unidade = request.getParameter("unidade");
+        String sessao = request.getParameter("sessao");
+        //unidade
+                //sessao
 
         //Cria variavel do produto
         Produto produto = new Produto();
@@ -35,6 +41,11 @@ public class CadastrarProdutoSA extends HttpServlet {
         //Insere informações no objeto
         produto.setNmNome(nome);
         produto.setNmMarca(marca);
+        produto.setVlUnidade(BigDecimal.ONE);
+     Sessao idSessao = null;
+        produto.setIdSessao(idSessao);
+        
+
 
         //Chama de funcao para salvar ou atualizar produto
         ControleProduto.salvar(produto);
