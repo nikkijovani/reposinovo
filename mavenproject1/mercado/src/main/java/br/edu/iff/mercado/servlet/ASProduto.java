@@ -32,18 +32,22 @@ public class ASProduto extends HttpServlet {
         String DsDescricao = request.getParameter("descricao");
         String valorUnitario = request.getParameter("vlunidade");
         BigDecimal VlUnidade = BigDecimal.valueOf(Double.parseDouble(valorUnitario));
+
         String valorPromocional = request.getParameter("vlpromocao");
-        BigDecimal VlPromocao = BigDecimal.valueOf(Double.parseDouble(valorPromocional));
-
-        String data = request.getParameter("dtpromocao");
-
-        Date DtPromocao = new Date();
-        try {
-            DtPromocao = new SimpleDateFormat("dd/MM/yyyy").parse(data);
-        } catch (ParseException ex) {
-            System.out.println("ERRO DE CONVERSAO DE DATA! Data digitada: " + data);
+        BigDecimal VlPromocao = null;
+        if (!(valorPromocional == null || valorPromocional.isEmpty())) {
+            VlPromocao = BigDecimal.valueOf(Double.parseDouble(valorPromocional));
         }
 
+        String data = request.getParameter("dtpromocao");
+        Date DtPromocao = null;
+        if (!(data == null || data.isEmpty())) {
+            try {
+                DtPromocao = new SimpleDateFormat("dd/MM/yyyy").parse(data);
+            } catch (ParseException ex) {
+                System.out.println("ERRO DE CONVERSAO DE DATA! Data digitada: " + data);
+            }
+        }
         //Chama de funcao para salvar ou atualizar usuario
         ControleProduto.atualizar(IdProduto, NmNome, NmMarca, DsDescricao, VlUnidade, DtPromocao, VlPromocao);
 
