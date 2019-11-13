@@ -16,7 +16,7 @@ import java.util.List;
 public class WebHelpis {
     
     public static String montarSelectSessao(Sessao sessaoDoProduto) {
-        StringBuffer select = new StringBuffer("<select name=\"\">");
+        StringBuffer select = new StringBuffer("<select name=\"sessao\">");
         List<Sessao> sessoes = ControleSessao.listar();
         for (Sessao sessao : sessoes) {
             select.append("<option value=\"");

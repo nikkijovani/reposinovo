@@ -3,6 +3,7 @@
 <jsp:directive.page import="br.edu.iff.mercado.entidades.*"/>
 <jsp:directive.page import="java.util.*"/>
 <header>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <img src="imagens /logosite.png" width=155px right=55px alt="Mercearia online">
     <nav class="menu">
         <ul>
@@ -29,13 +30,8 @@
                 <% } else if (usuario == null && adm != null) {%>
             <li><a href="listarAdmin.jsp">Listar Admin's</a></li>
             <li><a href="alterarAdmin.jsp?id=">Criar um novo Admin</a></li>
-<<<<<<< HEAD
-            <li><a href="listagemProdutos.jsp">Add. Promoção</a></li>
-=======
-            <li><a href="listagemProdutos.jsp">Promoções</a></li>
->>>>>>> 062013a02da99c95d664f01ebeac1ea5acdc6c4f
             <li><a href="listarproduto.jsp">Lista de Produtos</a></li>
-            <li><a href="produtoAlterar.jsp?id=">Atualizar produtos</a></li>
+            <li><a href="listagemProdutos.jsp">Promoções</a></li>
             <li><a href="perfilcliente.jsp">Olá, <%=adm.getNmNome()%>!</a></li>
             <li><a href="servletLogout">Sair</a></li>
                 <% } else { %>

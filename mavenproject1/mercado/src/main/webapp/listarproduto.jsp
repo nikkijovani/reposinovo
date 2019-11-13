@@ -7,13 +7,15 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link rel="stylesheet" type="text/css" href="css\beleza.css">
         <title>Produtos</title>
     </head>
     <body>
         <%@ include file="cabecalho.jspf" %>
-        <h1>Lista dos produtos</h1>
+        <br>
+    <center>  <h2>Lista dos produtos</h2> </center>
         <%
             List<Produto> lista = ControleProduto.listar();
             request.setAttribute("produto", lista);

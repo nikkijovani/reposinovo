@@ -49,7 +49,7 @@ public class CadastrarProdutos extends HttpServlet {
         }
     }
 
-    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
+    // <editor-fold defaultstate="expanded" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
      * Handles the HTTP <code>GET</code> method.
      *
@@ -97,8 +97,10 @@ public class CadastrarProdutos extends HttpServlet {
         produto.setNmNome(request.getParameter("nome"));
         produto.setNmMarca(request.getParameter("marca"));
         
-        Sessao verdura = ControleSessao.buscar(1);
-        produto.setIdSessao(verdura);
+        Integer id = request.getParameter("sessao");
+        
+        Sessao sp = ControleSessao.buscar(id);
+        produto.setIdSessao(sp);
 
         //Chama de funcao para salvar produto
        ControleProduto.salvar(produto);

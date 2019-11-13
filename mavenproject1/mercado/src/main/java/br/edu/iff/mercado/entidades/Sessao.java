@@ -100,7 +100,7 @@ public class Sessao implements Serializable {
 
     @Override
     public String toString() {
-        return "br.edu.iff.mercado.entidades.Sessao[ idSessao=" + idSessao + " ]";
+        return this.nmNome;
     }
 
   
