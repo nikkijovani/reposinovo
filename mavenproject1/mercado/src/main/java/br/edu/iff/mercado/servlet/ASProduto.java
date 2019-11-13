@@ -27,12 +27,7 @@ public class ASProduto extends HttpServlet {
             throws ServletException, IOException {
         //Captura parametros da tela
         String IdProduto = request.getParameter("pid");
-        String NmNome = request.getParameter("nome");
-        String NmMarca = request.getParameter("marca");
-        String DsDescricao = request.getParameter("descricao");
-        String valorUnitario = request.getParameter("vlunidade");
-        BigDecimal VlUnidade = BigDecimal.valueOf(Double.parseDouble(valorUnitario));
-
+        
         String valorPromocional = request.getParameter("vlpromocao");
         BigDecimal VlPromocao = null;
         if (!(valorPromocional == null || valorPromocional.isEmpty())) {
@@ -49,7 +44,7 @@ public class ASProduto extends HttpServlet {
             }
         }
         //Chama de funcao para salvar ou atualizar usuario
-        ControleProduto.atualizar(IdProduto, NmNome, NmMarca, DsDescricao, VlUnidade, DtPromocao, VlPromocao);
+        ControleProduto.atualizarPromocao(IdProduto, DtPromocao, VlPromocao);
 
         //Redireciona pagina
         response.sendRedirect("listagemProdutos.jsp");

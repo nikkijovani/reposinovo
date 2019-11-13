@@ -91,4 +91,21 @@ public class ControleProduto {
 
     }
 
+    public static void atualizarPromocao(String IdProduto, Date DtPromocao, BigDecimal VlPromocao) {
+        Session sessionRecheio;
+        sessionRecheio = HibernateUtil.getSession();
+        Transaction tr = sessionRecheio.beginTransaction();
+        String hql = "from Produto u where u.id='" + IdProduto + "'";
+        Produto produto = (Produto) sessionRecheio.createQuery(hql).uniqueResult();
+        produto.setVlPromocao(VlPromocao);
+        produto.setDtPromocao(DtPromocao);
+        try {
+            sessionRecheio.saveOrUpdate(produto);
+            tr.commit();
+        } catch (Exception e) {
+            e.printStackTrace();
+            e.getCause().printStackTrace();
+        }
+    }
+
 }

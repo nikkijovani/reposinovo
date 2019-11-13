@@ -17,19 +17,15 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author aluno
  */
-public class DeletarProduto extends HttpServlet {
+public class DeletarPromocao extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         //Captura id da tela
         String IdProduto = request.getParameter("pid");
         
-        //Cria instancia do usuario com id informado
-        Produto produto = new Produto();
-        produto.setIdProduto(Integer.parseInt(IdProduto));
-        
         //Chama de funcao para apagar usuario
-        ControleProduto.deletar(produto);
+        ControleProduto.atualizarPromocao(IdProduto, null, null);
         
         //Redireciona pagina
         response.sendRedirect("listagemProdutos.jsp");

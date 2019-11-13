@@ -17,8 +17,8 @@
         <servlet-class>br.edu.iff.mercado.servlet.DeletarAdmin</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>DeletarProduto</servlet-name>
-        <servlet-class>br.edu.iff.mercado.servlet.DeletarProduto</servlet-class>
+        <servlet-name>DeletarPromocao</servlet-name>
+        <servlet-class>br.edu.iff.mercado.servlet.DeletarPromocao</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>AdminAS</servlet-name>
@@ -32,7 +32,7 @@
         <servlet-name>DeletarCliente</servlet-name>
         <servlet-class>br.edu.iff.mercado.servlet.DeletarCliente</servlet-class>
     </servlet>
-     <servlet>
+    <servlet>
         <servlet-name>CadastrarProdutoSA</servlet-name>
         <servlet-class>br.edu.iff.mercado.servlet.CadastrarProdutoSA</servlet-class>
     </servlet>
@@ -52,7 +52,6 @@
         <servlet-name>CadastrarProdutos</servlet-name>
         <servlet-class>br.edu.iff.mercado.servlet.CadastrarProdutos</servlet-class>
     </servlet>
-
     <servlet-mapping>
         <servlet-name>cadastroclie</servlet-name>
         <url-pattern>/cadastroclie</url-pattern>
@@ -69,15 +68,15 @@
         <servlet-name>DeletarAdmin</servlet-name>
         <url-pattern>/DeletarAdmin</url-pattern>
     </servlet-mapping>
-     <servlet-mapping>
-        <servlet-name>DeletarProduto</servlet-name>
-        <url-pattern>/DeletarProduto</url-pattern>
+    <servlet-mapping>
+        <servlet-name>DeletarPromocao</servlet-name>
+        <url-pattern>/DeletarPromocao</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>AdminAS</servlet-name>
         <url-pattern>/AdminAS</url-pattern>
     </servlet-mapping>
-     <servlet-mapping>
+    <servlet-mapping>
         <servlet-name>ASProduto</servlet-name>
         <url-pattern>/ASProduto</url-pattern>
     </servlet-mapping>
@@ -110,7 +109,4 @@
             30
         </session-timeout>
     </session-config>
-    <welcome-file-list>
-        <welcome-file>index.jsp</welcome-file>
-    </welcome-file-list>
 </web-app>

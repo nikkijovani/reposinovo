@@ -25,7 +25,7 @@
             <display:column property="dtPromocao" title="Fim da Promoção"/>
             <display:column property="nmMarca" title="Marca"/>
             <display:column value="alterar" title="Alterar" href="alteracaoProduto.jsp" paramId="pid" paramProperty="idProduto" />             
-            <display:column value="deletar" title="Deletar" autolink="true"  paramId="pid" paramProperty="idProduto" href="${pageContext.request.contextPath}/DeletarProduto"/>
+            <display:column value="deletar" title="Deletar" autolink="true"  paramId="pid" paramProperty="idProduto" href="${pageContext.request.contextPath}/DeletarPromocao"/>
             <display:setProperty name="basic.msg.empty_list" value="Nenhum produto cadastrado." />
         </display:table>
         <br>

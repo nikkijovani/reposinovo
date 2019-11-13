@@ -18,7 +18,7 @@
     <body>
         <%@ include file="cabecalho.jspf" %>
         <br> 
-        <h2>Editar Produto</h2>
+        <h2>Editar Promoção</h2>
         <%
             String IdProduto = request.getParameter("pid");
             Produto produto = ControleProduto.buscar(Integer.parseInt(IdProduto));
@@ -48,18 +48,16 @@
         %>
 
         <form method="POST" action="ASProduto">
-            <div hidden>
-                ID Produto<input type="text" name="pid" value="<%=IdProduto%>">
-            </div>
-            Nome<input type="text" name="nome" value="<%=produto.getNmNome()%>">
-            Descricao<input type="text" name="descricao" value="<%=produto.getDsDescricao()%>">
-            Marca<input type="text" name="marca" value="<%=produto.getNmMarca()%>">
-            Valor unidade<input type="text" name="vlunidade" value="<%=produto.getVlUnidade()%>">
+            <input type="hidden" name="pid" value="<%=IdProduto%>">
+            Nome <input type="text" name="nome" value="<%=produto.getNmNome()%>" disabled><br>
+            Descricao <input type="text" name="descricao" value="<%=produto.getDsDescricao()%>" disabled><br>
+            Marca <input type="text" name="marca" value="<%=produto.getNmMarca()%>" disabled><br>
+            Valor unidade <input type="text" name="vlunidade" value="<%=produto.getVlUnidade()%>" disabled><br>
 
-            Valor promocional<input type="text" name="vlpromocao" value="<%=promo%>">
-            Fim da Promoção<input type="text" name="dtpromocao" value="<%=promoData%>">
+            Valor promocional <input type="text" name="vlpromocao" value="<%=promo%>"><br>
+            Fim da Promoção <input type="text" name="dtpromocao" value="<%=promoData%>"><br>
 
-            <input type="submit">
+            <input type="submit" title="Alterar Promoção">
         </form>
         <% }%>
     </body>
