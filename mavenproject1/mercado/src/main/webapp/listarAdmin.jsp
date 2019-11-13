@@ -16,15 +16,14 @@
         <h2>Lista dos usuários admin's</h2>
         <%
             List<Admin> lista = ControleAdmin.listar();
-            request.setAttribute("usuarios", lista);
+            request.setAttribute("admins", lista);
         %>
-        <display:table name="usuarios">
-            <display:column property="id" title="ID" paramProperty="checkbox"/>
+        <display:table name="admins">
             <display:column property="nmNome" title="Nome"/>
             <display:column property="nrTelefone" title="Telefone"/>
             <display:column property="nrCpf" title="Cpf"/>
-            <display:column value="alterar" title="Alterar" href="alterarAdmin.jsp" paramId="id" paramProperty="id" />             
-            <display:column value="deletar" title="Deletar" autolink="true"  paramId="id" paramProperty="id" href="${pageContext.request.contextPath}/DeletarAdmin"/>
+            <display:column value="alterar" title="Alterar" href="alterarAdmin.jsp" paramId="pid" paramProperty="idAdmin" />             
+            <display:column value="deletar" title="Deletar" autolink="true"  paramId="pid" paramProperty="idAdmin" href="${pageContext.request.contextPath}/DeletarAdmin"/>
             <display:setProperty name="basic.msg.empty_list" value="Nenhum admin cadastrado." />
         </display:table>
         <br>

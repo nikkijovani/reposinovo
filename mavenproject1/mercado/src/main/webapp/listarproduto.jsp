@@ -16,6 +16,7 @@
         <%@ include file="cabecalho.jspf" %>
         <br>
     <center>  <h2>Lista dos produtos</h2> </center>
+        <h1>Lista dos produtos</h1>
         <%
             List<Produto> lista = ControleProduto.listar();
             request.setAttribute("produto", lista);

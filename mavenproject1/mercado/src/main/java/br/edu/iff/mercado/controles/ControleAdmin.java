@@ -18,12 +18,12 @@ import org.hibernate.Transaction;
 public class ControleAdmin {
     
     //Função de salvar/atualizar um usuario
-    public static boolean salvar(Admin usuario){
+    public static boolean salvar(Admin admin){
         try{
             Session sessionRecheio;
             sessionRecheio = HibernateUtil.getSession();
             Transaction tr = sessionRecheio.beginTransaction();
-            sessionRecheio.saveOrUpdate(usuario);
+            sessionRecheio.saveOrUpdate(admin);
             tr.commit();
             return true;
         }
@@ -35,11 +35,11 @@ public class ControleAdmin {
     //Localiza um usuario pelo id
     public static Admin buscar(Integer id)
     {
-        String idUsuario = id.toString();
+        String idAdmin = id.toString();
         Session sessionRecheio;
         sessionRecheio = HibernateUtil.getSession();
         Transaction tr = sessionRecheio.beginTransaction();
-        String hql = "from Admin u where u.id='"+idUsuario+"'";
+        String hql = "from Admin u where u.idAdmin='"+idAdmin+"'";
         Admin usuario = (Admin)sessionRecheio.createQuery(hql).uniqueResult();
         tr.commit();
         return usuario;
@@ -58,12 +58,12 @@ public class ControleAdmin {
     }
     
     //Função de apagar um usuario
-    public static boolean deletar(Admin usuario){
+    public static boolean deletar(Admin admin){
         try{
             Session sessionRecheio;
             sessionRecheio = HibernateUtil.getSession();
             Transaction tr = sessionRecheio.beginTransaction();
-            sessionRecheio.delete(usuario);
+            sessionRecheio.delete(admin);
             tr.commit();
             return true;
         }

@@ -33,7 +33,7 @@ import javax.xml.bind.annotation.XmlRootElement;
     , @NamedQuery(name = "Admin.findByNrCpf", query = "SELECT a FROM Admin a WHERE a.nrCpf = :nrCpf")
     , @NamedQuery(name = "Admin.findByDsSenha", query = "SELECT a FROM Admin a WHERE a.dsSenha = :dsSenha")
     , @NamedQuery(name = "Admin.findByNrTelefone", query = "SELECT a FROM Admin a WHERE a.nrTelefone = :nrTelefone")
-    , @NamedQuery(name = "Admin.findById", query = "SELECT a FROM Admin a WHERE a.id = :id")})
+    , @NamedQuery(name = "Admin.findByIdAdmin", query = "SELECT a FROM Admin a WHERE a.idAdmin = :idAdmin")})
 public class Admin implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -54,14 +54,14 @@ public class Admin implements Serializable {
     @NotNull
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "meugerador")
     @SequenceGenerator(name="meugerador", sequenceName = "sq_admin")
-    @Column(name = "id")
-    private Integer id;
+    @Column(name = "id_admin")
+    private Integer idAdmin;
 
     public Admin() {
     }
 
-    public Admin(Integer id) {
-        this.id = id;
+    public Admin(Integer idAdmin) {
+        this.idAdmin = idAdmin;
     }
 
     public String getNmNome() {
@@ -96,18 +96,18 @@ public class Admin implements Serializable {
         this.nrTelefone = nrTelefone;
     }
 
-    public Integer getId() {
-        return id;
+    public Integer getIdAdmin() {
+        return idAdmin;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
+    public void setIdAdmin(Integer idAdmin) {
+        this.idAdmin = idAdmin;
     }
 
     @Override
     public int hashCode() {
         int hash = 0;
-        hash += (id != null ? id.hashCode() : 0);
+        hash += (idAdmin != null ? idAdmin.hashCode() : 0);
         return hash;
     }
 
@@ -118,7 +118,7 @@ public class Admin implements Serializable {
             return false;
         }
         Admin other = (Admin) object;
-        if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
+        if ((this.idAdmin == null && other.idAdmin != null) || (this.idAdmin != null && !this.idAdmin.equals(other.idAdmin))) {
             return false;
         }
         return true;
@@ -126,7 +126,7 @@ public class Admin implements Serializable {
 
     @Override
     public String toString() {
-        return "br.edu.iff.mercado.entidades.Admin[ id=" + id + " ]";
+        return "br.edu.iff.mercado.entidades.Admin[ idAdmin=" + idAdmin + " ]";
     }
     
 }

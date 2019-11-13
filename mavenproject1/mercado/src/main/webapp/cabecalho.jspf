@@ -29,7 +29,10 @@
             <li> <a href="cadastro.html">Cadastro</a></li>
                 <% } else if (usuario == null && adm != null) {%>
             <li><a href="listarAdmin.jsp">Listar Admin's</a></li>
+
             <li><a href="alterarAdmin.jsp?id=">Criar um novo Admin</a></li>
+            <li><a href="alterarAdmin.jsp?pid=">Novo Admin</a></li>
+
             <li><a href="listarproduto.jsp">Lista de Produtos</a></li>
             <li><a href="listagemProdutos.jsp">Promoções</a></li>
             <li><a href="perfilcliente.jsp">Olá, <%=adm.getNmNome()%>!</a></li>
