@@ -23,26 +23,26 @@ public class AdminAS extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         //Captura parametros da tela
-        String idtext = request.getParameter("id");
+        String idAdmin = request.getParameter("pid");
         String NmNome = request.getParameter("nome");
         String DsSenha = request.getParameter("senha");
         String NrTelefone = request.getParameter("telefone");
         String NrCpf = request.getParameter("cpf");
 
         //Cria instancia do usuario
-        Admin usuario = new Admin();        
+        Admin admin = new Admin();        
         //Detecta se é usuario novo ou antigo
-        if(!idtext.isEmpty()){
-            Integer id = Integer.parseInt(idtext);
-            usuario.setId(id);
+        if(!idAdmin.isEmpty()){
+            Integer id = Integer.parseInt(idAdmin);
+            admin.setIdAdmin(id);
         }
         //Insere informações no objeto
-        usuario.setNmNome(NmNome);
-        usuario.setDsSenha(DsSenha);
-        usuario.setNrTelefone(NrTelefone);
-        usuario.setNrCpf(NrCpf);
+        admin.setNmNome(NmNome);
+        admin.setDsSenha(DsSenha);
+        admin.setNrTelefone(NrTelefone);
+        admin.setNrCpf(NrCpf);
         //Chama de funcao para salvar ou atualizar usuario
-        ControleAdmin.salvar(usuario);
+        ControleAdmin.salvar(admin);
         
         //Redireciona pagina
         response.sendRedirect("listarAdmin.jsp");

@@ -22,11 +22,11 @@ public class DeletarAdmin extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         //Captura id da tela
-        String idtext = request.getParameter("id");
+        String idAdmin = request.getParameter("pid");
         
         //Cria instancia do usuario com id informado
         Admin usuario = new Admin();
-        usuario.setId(Integer.parseInt(idtext));
+        usuario.setIdAdmin(Integer.parseInt(idAdmin));
         
         //Chama de funcao para apagar usuario
         ControleAdmin.deletar(usuario);

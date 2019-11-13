@@ -13,6 +13,7 @@
     </head>
     <body>
         <%@ include file="cabecalho.jspf" %>
+        <br>
         <h1>Lista dos produtos</h1>
         <%
             List<Produto> lista = ControleProduto.listar();

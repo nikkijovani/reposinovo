@@ -28,14 +28,9 @@
             <li> <a href="cadastro.html">Cadastro</a></li>
                 <% } else if (usuario == null && adm != null) {%>
             <li><a href="listarAdmin.jsp">Listar Admin's</a></li>
-            <li><a href="alterarAdmin.jsp?id=">Criar um novo Admin</a></li>
-<<<<<<< HEAD
-            <li><a href="listagemProdutos.jsp">Add. Promoção</a></li>
-=======
-            <li><a href="listagemProdutos.jsp">Promoções</a></li>
->>>>>>> 062013a02da99c95d664f01ebeac1ea5acdc6c4f
+            <li><a href="alterarAdmin.jsp?pid=">Novo Admin</a></li>
             <li><a href="listarproduto.jsp">Lista de Produtos</a></li>
-            <li><a href="produtoAlterar.jsp?id=">Atualizar produtos</a></li>
+            <li><a href="listagemProdutos.jsp">Promoções</a></li>
             <li><a href="perfilcliente.jsp">Olá, <%=adm.getNmNome()%>!</a></li>
             <li><a href="servletLogout">Sair</a></li>
                 <% } else { %>

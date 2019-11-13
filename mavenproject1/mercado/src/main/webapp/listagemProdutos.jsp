@@ -8,12 +8,12 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link rel="stylesheet" type="text/css" href="css\beleza.css">
-        <title>Add. Promoção</title>
+        <title>Edições do produto</title>
     </head>
     <body>
         <%@ include file="cabecalho.jspf" %>
         <br>
-        <h2>Add. Promoção!</h2>
+        <h2>Cadastre aqui novas promoções!</h2>
         <%
             List<Produto> lista = ControleProduto.listar();
             request.setAttribute("produtos", lista);
