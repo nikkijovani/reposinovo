@@ -167,6 +167,7 @@ public class Produto implements Serializable {
     public Sessao getIdSessao() {
         return idSessao;
     }
+    
 
     public void setIdSessao(Sessao idSessao) {
         this.idSessao = idSessao;
@@ -196,5 +197,4 @@ public class Produto implements Serializable {
     public String toString() {
         return "br.edu.iff.mercado.entidades.Produto[ idProduto=" + idProduto + " ]";
     }
-    
 }

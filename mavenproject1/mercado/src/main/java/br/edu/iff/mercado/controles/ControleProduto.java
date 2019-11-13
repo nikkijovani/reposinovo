@@ -35,7 +35,7 @@ public class ControleProduto {
         }
     }
 
-    //Localiza um usuario pelo id
+    //Localiza um produto pelo id
     public static Produto buscar(Integer id) {
         String IdProduto = id.toString();
         Session sessionRecheio;
@@ -45,7 +45,7 @@ public class ControleProduto {
         return produto;
     }
 
-    //Retorna todos os usuario do sistema
+    //Retorna todos os produtos do sistema
     public static List<Produto> listar() {
         Session sessionRecheio;
         sessionRecheio = HibernateUtil.getSession();
