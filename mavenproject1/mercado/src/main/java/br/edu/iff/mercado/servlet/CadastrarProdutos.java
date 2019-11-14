@@ -97,7 +97,7 @@ public class CadastrarProdutos extends HttpServlet {
         produto.setNmNome(request.getParameter("nome"));
         produto.setNmMarca(request.getParameter("marca"));
         
-        Integer id = request.getParameter("sessao");
+        Integer id = Integer.parseInt(request.getParameter("sessao"));
         
         Sessao sp = ControleSessao.buscar(id);
         produto.setIdSessao(sp);

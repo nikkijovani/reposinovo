@@ -1,4 +1,4 @@
---
+﻿--
 -- PostgreSQL database dump
 --
 
@@ -158,10 +158,6 @@ ALTER TABLE sq_usuario OWNER TO postgres;
 -- Data for Name: admin; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-COPY admin (nm_nome, nr_cpf, ds_senha, nr_telefone, id_admin) FROM stdin;
-Eduarda	11122233345	1234	98727534	200
-Ana	11122233347	12345	98726777	25
-\.
 
 
 --
@@ -170,9 +166,7 @@ Ana	11122233347	12345	98726777	25
 -- Data for Name: cliente; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-COPY cliente (nr_telefone, nr_cpf, nr_rg, ds_senha, ds_email, endereco, nm_nome, id) FROM stdin;
-997439238	11122233344	123456789	123	jovani@gmail.com	Rua oi	Jovani	1
-\.
+
 
 
 --
@@ -181,12 +175,6 @@ COPY cliente (nr_telefone, nr_cpf, nr_rg, ds_senha, ds_email, endereco, nm_nome,
 -- Data for Name: produto; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-COPY produto (nm_nome, nm_marca, id_produto, dt_promocao, vl_unidade, vl_promocao, ds_descricao, ft_produto, extensao, id_sessao) FROM stdin;
-Queijo Branco	Minas	2	\N	6.9	\N	Queijo Minas artesanal	\N	\N	10
-Leite desnatado	Parmalat	3	\N	4.9	\N	Leite Parmalat 1L	\N	\N	10
-Mortadela defumada 	Sadia	4	\N	3.9	\N	Mortadela defumada Kg	\N	\N	10
-Iogurte	Vigor	1	\N	5.9	\N	Iogurte de morango 1L	\N	image/jpeg	10
-\.
 
 
 --
@@ -195,9 +183,7 @@ Iogurte	Vigor	1	\N	5.9	\N	Iogurte de morango 1L	\N	image/jpeg	10
 -- Data for Name: sessao; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-COPY sessao (id_sessao, nm_nome) FROM stdin;
-10	frios e laticinios
-\.
+
 
 
 --
