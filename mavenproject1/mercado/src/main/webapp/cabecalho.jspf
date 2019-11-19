@@ -28,9 +28,7 @@
             <li> <a href="login.html">Login</a></li>
             <li> <a href="cadastro.html">Cadastro</a></li>
                 <% } else if (usuario == null && adm != null) {%>
-            <li><a href="listarAdmin.jsp">Listar Admin's</a></li>
-
-            <li><a href="alterarAdmin.jsp?id=">Criar um novo Admin</a></li>
+            <li><a href="listarAdmin.jsp">Admin's</a></li>
             <li><a href="alterarAdmin.jsp?pid=">Novo Admin</a></li>
 
             <li><a href="listarproduto.jsp">Lista de Produtos</a></li>

@@ -49,13 +49,13 @@
 
         <form method="POST" action="ASProduto">
             <input type="hidden" name="pid" value="<%=IdProduto%>">
-            Nome <input type="text" name="nome" value="<%=produto.getNmNome()%>" disabled><br>
-            Descricao <input type="text" name="descricao" value="<%=produto.getDsDescricao()%>" disabled><br>
-            Marca <input type="text" name="marca" value="<%=produto.getNmMarca()%>" disabled><br>
-            Valor unidade <input type="text" name="vlunidade" value="<%=produto.getVlUnidade()%>" disabled><br>
+            Nome: <input type="text" name="nome" value="<%=produto.getNmNome()%>" disabled><br><br>
+            Descrição: <input type="text" name="descricao" value="<%=produto.getDsDescricao()%>" disabled><br><br>
+            Marca: <input type="text" name="marca" value="<%=produto.getNmMarca()%>" disabled><br><br>
+            Valor unidade: <input type="text" name="vlunidade" value="<%=produto.getVlUnidade()%>" disabled><br><br>
 
-            Valor promocional <input type="text" name="vlpromocao" value="<%=promo%>"><br>
-            Fim da Promoção <input type="text" name="dtpromocao" value="<%=promoData%>"><br>
+            Valor promocional: <input type="text" name="vlpromocao" value="<%=promo%>"><br><br>
+            Fim da Promoção: <input type="text" name="dtpromocao" value="<%=promoData%>"><br><br>
 
             <input type="submit" title="Alterar Promoção">
         </form>
