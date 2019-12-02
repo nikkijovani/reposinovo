@@ -58,20 +58,37 @@
   </div>
 
   <div class="row">
-        <%
-            List<Produtos> lista = ControleProduto.listar();
-            request.setAttribute( "produtos", lista );
-        %>
-        <display:table name="produtos">
-            <display:column property="nome" title="Produto"/>
-            <display:column property="preco" title="Preço"/>
-        </display:table>
-        <br><br>
+            <%
+                List<Produto> lista = ControleProduto.listar();
+                request.setAttribute("produtos", lista);
+                for(Produto produto : lista) {
+                    %>
+                    
+                    <div>
+                        Um produto aqui:<br>
+                        <%=produto.getNmNome()%><br>
+                        Apenas <%=produto.getVlUnidade()%><br>
+                        <%
+                        if(produto.getVlPromocao() != null){
+                        %>
+                        Promoção: <%=produto.getVlPromocao()%><br>
+                        <%
+                        }
+                        %>
+                        <button>COMPRAR</button>
+                    </div>
+                    <br>
+                    
+                    <%
+                }
+            %>
+            
+            <br><br>
 
 
 
 
-  </div>
+        </div>
 
 
   <script src="js/jquery-2.2.3.min.js"></script>
