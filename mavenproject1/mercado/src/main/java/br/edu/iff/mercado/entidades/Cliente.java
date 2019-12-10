@@ -6,6 +6,7 @@
 package br.edu.iff.mercado.entidades;
 
 import java.io.Serializable;
+import java.util.Collection;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -14,11 +15,13 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
+import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
@@ -38,6 +41,9 @@ import javax.xml.bind.annotation.XmlRootElement;
     , @NamedQuery(name = "Cliente.findByNmNome", query = "SELECT c FROM Cliente c WHERE c.nmNome = :nmNome")
     , @NamedQuery(name = "Cliente.findById", query = "SELECT c FROM Cliente c WHERE c.id = :id")})
 public class Cliente implements Serializable {
+
+    @OneToMany(mappedBy = "idCliente")
+    private Collection<Compra> compraCollection;
 
     private static final long serialVersionUID = 1L;
     @Size(max = 100)
@@ -170,6 +176,15 @@ public class Cliente implements Serializable {
     @Override
     public String toString() {
         return "br.edu.iff.mercado.entidades.Cliente[ id=" + id + " ]";
+    }
+
+    @XmlTransient
+    public Collection<Compra> getCompraCollection() {
+        return compraCollection;
+    }
+
+    public void setCompraCollection(Collection<Compra> compraCollection) {
+        this.compraCollection = compraCollection;
     }
 
 }

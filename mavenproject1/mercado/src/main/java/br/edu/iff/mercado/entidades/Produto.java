@@ -7,6 +7,7 @@ package br.edu.iff.mercado.entidades;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
+import java.util.Collection;
 import java.util.Date;
 import javax.persistence.Basic;
 import javax.persistence.Column;
@@ -19,6 +20,7 @@ import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
+import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
@@ -26,6 +28,7 @@ import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
@@ -43,9 +46,23 @@ import javax.xml.bind.annotation.XmlRootElement;
     , @NamedQuery(name = "Produto.findByVlUnidade", query = "SELECT p FROM Produto p WHERE p.vlUnidade = :vlUnidade")
     , @NamedQuery(name = "Produto.findByVlPromocao", query = "SELECT p FROM Produto p WHERE p.vlPromocao = :vlPromocao")
     , @NamedQuery(name = "Produto.findByDsDescricao", query = "SELECT p FROM Produto p WHERE p.dsDescricao = :dsDescricao")
-    /*, @NamedQuery(name = "Produto.findByExtensao", query = "SELECT p FROM Produto p WHERE p.extensao = :extensao")*/
+/*, @NamedQuery(name = "Produto.findByExtensao", query = "SELECT p FROM Produto p WHERE p.extensao = :extensao")*/
 })
 public class Produto implements Serializable {
+
+    @Lob
+    @Column(name = "ft_produto")
+    private byte[] ftProduto;
+
+    @Column(name = "vl_unidade")
+    private BigDecimal vlUnidade;
+    @Column(name = "vl_promocao")
+    private BigDecimal vlPromocao;
+    @Size(max = 2147483647)
+    @Column(name = "extensao")
+    private String extensao;
+    @OneToMany(mappedBy = "idProduto")
+    private Collection<Compra> compraCollection;
 
     private static final long serialVersionUID = 1L;
     @Size(max = 500)
@@ -54,22 +71,18 @@ public class Produto implements Serializable {
     @Size(max = 500)
     @Column(name = "nm_marca")
     private String nmMarca;
-    
+
     @Id
     @Basic(optional = false)
     @NotNull
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "geraProd")
-    @SequenceGenerator(name="geraProd", sequenceName = "sq_prod")
+    @SequenceGenerator(name = "geraProd", sequenceName = "sq_prod")
     @Column(name = "id_produto")
     private Integer idProduto;
-    
+
     @Column(name = "dt_promocao")
     @Temporal(TemporalType.TIMESTAMP)
     private Date dtPromocao;
-    @Column(name = "vl_unidade")
-    private BigDecimal vlUnidade;
-    @Column(name = "vl_promocao")
-    private BigDecimal vlPromocao;
     @Size(max = 100)
     @Column(name = "ds_descricao")
     private String dsDescricao;
@@ -82,8 +95,6 @@ public class Produto implements Serializable {
     @JoinColumn(name = "id_sessao", referencedColumnName = "id_sessao")
     @ManyToOne
     private Sessao idSessao;
-    
-    
 
     public Produto() {
     }
@@ -124,22 +135,6 @@ public class Produto implements Serializable {
         this.dtPromocao = dtPromocao;
     }
 
-    public BigDecimal getVlUnidade() {
-        return vlUnidade;
-    }
-
-    public void setVlUnidade(BigDecimal vlUnidade) {
-        this.vlUnidade = vlUnidade;
-    }
-
-    public BigDecimal getVlPromocao() {
-        return vlPromocao;
-    }
-
-    public void setVlPromocao(BigDecimal vlPromocao) {
-        this.vlPromocao = vlPromocao;
-    }
-
     public String getDsDescricao() {
         return dsDescricao;
     }
@@ -163,11 +158,9 @@ public class Produto implements Serializable {
     public void setExtensao(String extensao) {
         this.extensao = extensao;
     }*/
-
     public Sessao getIdSessao() {
         return idSessao;
     }
-    
 
     public void setIdSessao(Sessao idSessao) {
         this.idSessao = idSessao;
@@ -196,5 +189,63 @@ public class Produto implements Serializable {
     @Override
     public String toString() {
         return "br.edu.iff.mercado.entidades.Produto[ idProduto=" + idProduto + " ]";
+    }
+
+    public boolean temPromoValida() {
+        Date hoje = new Date();
+        int code;
+        boolean data;
+        if (hoje.before(this.dtPromocao)) {
+
+            data = true;
+        } else if (hoje.after(this.dtPromocao)) {
+            data = false;
+        } else {
+            data = true;
+        }
+
+        return data;
+
+    }
+
+    public BigDecimal getVlUnidade() {
+        return vlUnidade;
+    }
+
+    public void setVlUnidade(BigDecimal vlUnidade) {
+        this.vlUnidade = vlUnidade;
+    }
+
+    public BigDecimal getVlPromocao() {
+        return vlPromocao;
+    }
+
+    public void setVlPromocao(BigDecimal vlPromocao) {
+        this.vlPromocao = vlPromocao;
+    }
+
+    public byte[] getFtProduto() {
+        return ftProduto;
+    }
+
+    public void setFtProduto(byte[] ftProduto) {
+        this.ftProduto = ftProduto;
+    }
+
+    public String getExtensao() {
+        return extensao;
+    }
+
+    public void setExtensao(String extensao) {
+        this.extensao = extensao;
+    }
+
+    @XmlTransient
+    public Collection<Compra> getCompraCollection() {
+        return compraCollection;
+    }
+
+    public void setCompraCollection(Collection<Compra> compraCollection) {
+        this.compraCollection = compraCollection;
     }
 }

@@ -38,6 +38,7 @@ public class HibernateUtil {
         cfg.addAnnotatedClass(Admin.class);
         cfg.addAnnotatedClass(Sessao.class);
         cfg.addAnnotatedClass(Produto.class);
+        cfg.addAnnotatedClass(Compra.class);
 
         factory = cfg.buildSessionFactory();
     }
